@@ -1,0 +1,177 @@
+{ 
+  "layer": "top",
+  "position": "left",
+  "exclusive": true,
+  "width": 10,
+  "modules-left": [
+    "image#module",
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+  ],
+  "modules-right": [
+    "tray",
+    "clock",
+  ],
+  "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "~/.config/polybar.old/ws1.sh",
+      "all-outputs": true,
+      "enable-bar-scroll": true,
+      "smooth-scrolling-threshold": 1,
+      "on-scroll-up": "hyprctl dispatch workspace 1; playerctl pause",
+      "on-scroll-down": "hyprctl dispatch workspace 1; playerctl pause",
+      "persistent-workspaces" :{
+          "1": [],
+	 		    "2": [],
+	 		    "3": [],
+        },
+        "format-icons": {
+                "1": "",
+             		"2": "",
+             		"3": "",
+             		"4": "",
+             		"5": "",
+             		"6": "",
+             		"7": "",
+             		"8": "",
+             		"9": "",
+             		"10": "",
+          }
+  },
+  "tray": {
+    "spacing": 3
+  },
+  "clock": {
+    "format": "<span foreground='#00ffb1'>{:%I</span>
+<span foreground='#2798e4'>%M}</span>",
+"format-alt": "<span foreground='#2798e4'>{:%d</span>
+<span foreground='#00ffb1'>%m}</span>",
+"on-click-right": "$HOME/.config/hypr/scripts/apps/eww.sh open calbox --toggle",
+"interval": 1,
+},
+"image#module": {
+  "path": "/home/toji/.config/waybar/pic.png",
+  "size": 24,
+  "on-click": "eww-panel",
+},
+"image#player": {
+  "background": "/home/toji/Pictures/wv.png",
+  "format": "Hello",
+  "size": 24,
+},
+"custom/power": {
+"on-click": "$HOME/.config/hypr/scripts/apps/eww.sh open powermenu --toggle",
+"format": "⏻ "
+},
+"backlight": {
+"format": "{icon}",
+"format-icons": [
+  "󰃞",
+  "󰃝",
+  "󰃟",
+  "󰃠"
+],
+"on-click": "~/.config/polybar.old/ws1.sh",
+"on-click-middle": "$HOME/.config/rofi/applets/bin/brightness.sh",
+},
+"battery": {
+"states": {
+  "warning": 30,
+  "critical": 15
+},
+"format": "{icon}",
+"format-charging": "󱐥",
+"format-plugged": "󱐥",
+"format-icons": [
+  "󰂎",
+  "󰁺",
+  "󰁻",
+  "󰁼",
+  "󰁽",
+  "󰁿",
+  "󰂀",
+  "󰂁",
+  "󰂂",
+  "󰁹"
+],
+"on-click": "hyprctl dispatch exec [float] foot battop",
+"on-click-right": "$HOME/.config/rofi/applets/bin/battery.sh",
+},
+"pulseaudio": {
+"format": "{icon}",
+"on-click-right": "pactl set-sink-mute 0 toggle",
+"format-bluetooth": "{icon}",
+"format-bluetooth-muted": "󰝟",
+"format-muted": "󰝟",
+"format-source": "",
+"format-source-muted": "",
+"format-icons": {
+  "headphone": "",
+  "hands-free": "蓼",
+  "headset": "蓼",
+  "phone": "",
+  "portable": "",
+  "car": "",
+  "default": [
+    "󰕿",
+    "󰕾",
+    "󰕾"
+  ],
+},
+"on-click": "pactl set-sink-mute 0 toggle",
+"on-click-right": "pactl set-sink-mute 0 toggle",
+"on-click-middle": "$HOME/.config/rofi/applets/bin/volume.sh",
+},
+"bluetooth": {
+"format": "󰂯",
+"format-disabled": "󰂲",
+"format-connected": "󰂱",
+"tooltip-format": "{controller_alias}\t{controller_address}",
+"tooltip-format-connected": "{num_connections} connected\t{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+"on-click": "killall blueman-manager || hyprctl dispatch exec [float] blueman-manager",
+},
+"network": {
+"format": "󰖩",
+"format-wifi": "󰖩",
+"format-ethernet": "󰱔",
+"format-disconnected": "󰱟",
+"tooltip-format": "嬨 {ifname} via {gwaddr}",
+"tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+"tooltip-format-ethernet": " {ifname}",
+"tooltip-format-disconnected": "Disconnected",
+"max-length": 50,
+"on-click": "hyprctl dispatch exec [float] foot nmtui",
+},
+"wlr/workspaces": {
+"disable-scroll": false,
+"all-outputs": false,
+"on-click": "activate",
+"persistent_workspaces": {
+  "0": [],
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [],
+  "9": [],
+},
+"format-icons": {
+  "1": "",
+  "2": "",
+  "3": "",
+  "4": "󰏆",
+  "5": "",
+  "6": "",
+  "7": "󰡨",
+  "8": "",
+  "9": "",
+  "10": ""
+},
+"format": "{icon}",
+}
+}
