@@ -1,0 +1,120 @@
+/*******************************************************************************
+ * ROFI SQUARED THEME USING THE EVERFOREST PALETTE 
+ * User                 : LR-Tech               
+ * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ *******************************************************************************/
+
+* {
+    font:   "Cartograph CF bold italic 14";
+
+    bg0:     #2B3339;
+    bg1:     #323D43;
+    fg0:     #0084d3;
+
+    accent-color:     #A7C080;
+    urgent-color:     #DBBC7F;
+
+    text-color:         @fg0;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+
+    border-color: @bg1;
+    padding-color: @bg1;
+}
+
+window {
+    location:   center;
+    width:      400;
+
+    background-color:   @bg0;
+}
+
+inputbar {
+    spacing:    8px; 
+    padding:    8px;
+
+    background-color:   @bg1;
+    text-color: @accent-color;
+}
+
+prompt, entry, element-icon, element-text {
+    vertical-align: 0.5;
+    background-color:   @bg1;
+    text-color: @accent-color;
+}
+
+prompt {
+    text-color: @accent-color;
+    background-color:   @bg1;
+}
+
+textbox {
+    padding:            8px;
+    background-color:   @accent-color;
+}
+
+listview {
+    padding:    4px 0;
+    lines:      8;
+    columns:    1;
+
+    background-color:   @bg1;
+    fixed-height:   false;
+}
+
+element {
+    padding:    0px;
+    margin:    10px;
+    background-color:   @accent-color;
+}
+
+
+element normal normal {
+    text-color: @fg0;
+    background-color:   @fg0;
+}
+
+element normal urgent {
+    text-color: @urgent-color;
+    background-color:   @accent-color;
+    border-color: @bg1;
+    padding-color: @bg1;
+}
+
+element normal active {
+    text-color: @fg0;
+    background-color:   @accent-color;
+}
+
+
+element selected {
+    text-color: @accent-color;
+    background-color:   @accent-color;
+    text-color: @fg0;
+}
+
+element selected normal, element selected active {
+    background-color:   @accent-color;
+    text-color: @fg0;
+}
+
+element selected urgent {
+    background-color:   @accent-color;
+}
+
+element-icon {
+    size:   0.8em;
+    background-color: @accent-color;
+}
+
+element-text {
+    text-color: @fg0;
+    background-color:   @bg1;
+    horizontal-align: 0.5;
+}
+
+element-text selected {
+    text-color: @accent-color;
+}
