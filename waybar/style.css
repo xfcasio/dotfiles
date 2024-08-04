@@ -60,7 +60,8 @@ window#waybar {
 
 #workspaces button.active {
   /**background: linear-gradient(135deg, #2798e4 0%, #9554ff 80%);**/
-  background: #0084d3;
+  /**background: #0084d3;**/
+  background: #9554ff;
   color: #171c21;
   border-bottom: none;
   padding: 0px 0px 23px 0px;
