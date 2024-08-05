@@ -72,6 +72,7 @@ syn keyword c3BuiltinType typeid errtype void any anyfault bool
 syn keyword c3BuiltinType ichar short  int  long  int128  isz iptr
 syn keyword c3BuiltinType char  ushort uint ulong uint128 usz uptr
 syn keyword c3BuiltinType float16 float double float128
+syn keyword c3BuiltinType DString
 
 syn keyword c3Null null
 syn keyword c3Boolean true false
