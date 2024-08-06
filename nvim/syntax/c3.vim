@@ -133,6 +133,7 @@ syn match c3ComptimeKw display "\$vaconst"
 syn match c3ComptimeKw display "\$vacount"
 syn match c3ComptimeKw display "\$varef"
 syn match c3ComptimeKw display "\$vatype"
+syn match c3ComptimeKw display "\$typefrom"
 
 hi def link c3Number       Number
 hi def link c3Float        Number
