@@ -25,6 +25,12 @@ require("lazy").setup({
     end,
   },
 
+  {
+    "neoclide/coc.nvim",
+    lazy = false,
+    build = "npm ci"
+  },
+
   { import = "plugins" },
 }, lazy_config)
 
