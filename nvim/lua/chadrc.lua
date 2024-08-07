@@ -6,7 +6,12 @@ local M = {}
 
 M.ui = {
   theme = "everblush",
-  
+
+  statusline = {
+    theme = 'minimal',
+    separator_style = 'round'
+  },
+
   hl_override = {
     Comment = { italic = true },
     Keyword = { italic = true },
