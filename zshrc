@@ -121,6 +121,3 @@ PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-
-## PS1='$(kitty icat --place 10x10@0x$((2 * LINENO)) /home/toji/Pictures/p.png)          
