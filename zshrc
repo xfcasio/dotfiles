@@ -106,6 +106,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+shot() {
+  sleep $1 && grim -g "$(slurp)" ~/Pictures/p.png
+  cat ~/Pictures/p.png | wl-copy
+}
+
 alias ls=logo-ls
 alias dnf='dnf -C'
 alias grep='grep --color=always'
