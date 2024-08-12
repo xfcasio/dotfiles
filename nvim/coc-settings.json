@@ -1,3 +1,4 @@
 {
-  "rpc.showProblems": false
+  "rpc.showProblems": false,
+  "rpc.idleTimeout" : 180
 }
