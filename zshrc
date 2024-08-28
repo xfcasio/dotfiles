@@ -124,6 +124,7 @@ PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
 # bun completions
 [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
 
+export RUSTUP_HOME=/opt/rustup
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
