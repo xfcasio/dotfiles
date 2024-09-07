@@ -48,10 +48,11 @@ print_events = false
 render_timer = false
 
 [font]
-size = 8.0
+size = 10.0
 
 [font.bold]
-family = "Cartograph CF"
+family = "Spleen"
+#family = "Cartograph CF"
 style = "Heavy"
 
 [font.glyph_offset]
@@ -59,11 +60,13 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Cartograph CF"
+family = "Spleen"
+#family = "Cartograph CF"
 style = "Heavy Italic"
 
 [font.normal]
-family = "Cartograph CF"
+family = "Spleen"
+#family = "Cartograph CF"
 style = "Bold"
 
 [font.offset]

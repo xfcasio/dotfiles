@@ -119,7 +119,8 @@ alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias q=exit
 
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
-PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
+## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
+PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} %~ %f%k%b "
 
 # bun completions
 [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
