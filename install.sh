@@ -14,8 +14,7 @@ mkdir -p ~/.config/alacritty
 ln -s "$HERE/alacritty.toml" "/home/$USER/.config/alacritty/alacritty.toml"
 
 
-mkdir -p ~/.config/rofi
-ln -s "$HERE/rofi" "/home/$USER/.config/rofi"
+ln -s "$HERE/rofi" "/home/$USER/.config/"
 
 mkdir -p ~/.config/Vencord
 mkdir -p ~/.config/Vencord/themes
