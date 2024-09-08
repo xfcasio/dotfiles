@@ -16,6 +16,5 @@ ln -s "$HERE/alacritty.toml" "/home/$USER/.config/alacritty/alacritty.toml"
 
 ln -s "$HERE/rofi" "/home/$USER/.config/"
 
-mkdir -p ~/.config/Vencord
 mkdir -p ~/.config/Vencord/themes
 ln -s "$HERE/Vencord/themes/midnight.theme.css" "/home/$USER/.config/Vencord/themes/midnight.theme.css"
