@@ -119,12 +119,13 @@ alias q=exit
 
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
-PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} %~ %f%k%b "
+## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} %~ %f%k%b "
+PS1="%B%K{#367bf0}%F{#12171d} toji %K{#2f343f}%F{#367bf0} %~ %f%k%b "
 
 # bun completions
-[ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
+## [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
 
-export RUSTUP_HOME=/opt/rustup
+## export RUSTUP_HOME=/opt/rustup
 # bun
 ## export BUN_INSTALL="$HOME/.bun"
-export PATH="$HOME/.cargo/bin/:$PATH"
+## export PATH="$HOME/.cargo/bin/:$PATH"
