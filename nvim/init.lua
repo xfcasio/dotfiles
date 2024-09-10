@@ -43,3 +43,5 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.cmd("set numberwidth=4")
