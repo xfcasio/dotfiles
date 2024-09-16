@@ -7,5 +7,5 @@
 </p>
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/677869233803100171/1282590341408493649/p.png?ex=66e5d796&is=66e48616&hm=56880d5e60cef155f518f79614a78d49a0df5380d15065e5d8c84c738980663a" />
+  <img src="https://cdn.discordapp.com/attachments/677869233803100171/1282590341408493649/p.png?ex=66e92356&is=66e7d1d6&hm=f0fe0a7d0e3d9afb76ed63b819462e53a027971c9b026456d7e2c02f0e45bd57&" />
 </p>
