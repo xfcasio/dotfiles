@@ -27,6 +27,7 @@ M.ui = {
     SpecialComment = { italic = true },
 
     NvimTreeNormal = { bg = '#101010' },
+    NvimTreeNormalNC = { bg = '#101010' },
 
     --["@comment"] = { italic = true },
     Normal = {
