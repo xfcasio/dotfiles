@@ -32,6 +32,7 @@ M.ui = {
     --["@comment"] = { italic = true },
     Normal = {
       bg = "none",
+      fg = "#a9a9a9",
     },
   },
 }

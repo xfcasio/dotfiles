@@ -35,7 +35,7 @@ yellow = "0xf0c674"
 
 [colors.primary]
 background = "0x101010"
-foreground = "0xdeeeed"
+foreground = "0xa9a9a9"
 
 [cursor]
 style = "Block"
@@ -374,11 +374,11 @@ action = "PasteSelection"
 mouse = "Middle"
 
 [scrolling]
-history = 0
+history = 100
 multiplier = 3
 
 [selection]
-save_to_clipboard = false
+save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
@@ -387,7 +387,7 @@ program = "/usr/bin/zsh"
 [window]
 decorations = "buttonless"
 dynamic_padding = true
-opacity = 0.95
+opacity = 0.98
 startup_mode = "Windowed"
 
 [window.dimensions]
@@ -395,5 +395,5 @@ columns = 100
 lines = 85
 
 [window.padding]
-x = 20
-y = 20
+x = 30
+y = 30
