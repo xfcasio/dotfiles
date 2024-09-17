@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "everblush",
+  theme = "gruvchad",
 
   statusline = {
     theme = 'minimal',
@@ -26,6 +26,7 @@ M.ui = {
     TSVariable = { italic = true },
     SpecialComment = { italic = true },
 
+    NvimTreeNormal = { bg = '#101010' },
 
     --["@comment"] = { italic = true },
     Normal = {

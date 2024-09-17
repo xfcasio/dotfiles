@@ -9,33 +9,33 @@ duration = 0
 draw_bold_text_with_bright_colors = false
 
 [colors.bright]
-black = "0x080808"
-blue = "0x7788AA"
-cyan = "0x6e8d9d"
-green = "0x789978"
-magenta = "0xb86cd4"
-red = "0xe64a6b"
-white = "0xf0f0f0"
-yellow = "0xf0c674"
+black = "0xffffff"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x73daca"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xc0caf5"
+yellow = "0xe0af68"
 
 
 [colors.cursor]
-cursor = "0xdeeeed"
+cursor = "0x9facb8"
 text = "0xffffff"
 
 [colors.normal]
-black = "0x080808"
-blue = "0x7788AA"
-cyan = "0x6e8d9d"
-green = "0x789978"
-magenta = "0xb86cd4"
-red = "0xe64a6b"
-white = "0xf0f0f0"
-yellow = "0xf0c674"
+black = "0xffffff"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x73daca"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xc0caf5"
+yellow = "0xe0af68"
 
 [colors.primary]
-background = "0x101010"
-foreground = "0xdeeeed"
+background = "0x12171D"
+foreground = "0x9facb8"
 
 [cursor]
 style = "Block"

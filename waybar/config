@@ -43,10 +43,10 @@
     "spacing": 3
   },
   "clock": {
-    "format": "<span foreground='#a175eb'>{:%I</span>
-<span foreground='#2798e4'>%M}</span>",
-"format-alt": "<span foreground='#2798e4'>{:%d</span>
-<span foreground='#a175eb'>%m}</span>",
+    "format": "<span foreground='#789978'>{:%I</span>
+<span foreground='#6e8d9d'>%M}</span>",
+"format-alt": "<span foreground='#6e8d9d'>{:%d</span>
+<span foreground='#789978'>%m}</span>",
 "on-click-right": "$HOME/.config/hypr/scripts/apps/eww.sh open calbox --toggle",
 "interval": 1,
 },
