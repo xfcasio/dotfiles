@@ -26,8 +26,8 @@ M.ui = {
     TSVariable = { italic = true },
     SpecialComment = { italic = true },
 
-    NvimTreeNormal = { bg = '#101010' },
-    NvimTreeNormalNC = { bg = '#101010' },
+    NvimTreeNormal = { bg = 'none' },
+    NvimTreeNormalNC = { bg = 'none' },
 
     --["@comment"] = { italic = true },
     Normal = {
