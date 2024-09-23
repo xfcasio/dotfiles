@@ -123,7 +123,7 @@ alias gac='git add . && git commit -m'
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} %~ %f%k%b "
 ## PS1="%B%K{#367bf0}%F{#12171d} toji %K{#2f343f}%F{#367bf0} %~ %f%k%b "
-PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
+PS1="%B%K{#e06b64}%F{#12171d} toji %K{#2f343f}%F{#e06b64} %~ %f%k%b "
 
 # bun completions
 ## [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
