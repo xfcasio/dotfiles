@@ -81,8 +81,8 @@ window#waybar {
 }
 
 #tray {
-  background-color: #171c21;
-  margin: 2px;
+  background-color: #191919;
+  margin: 3px;
   padding: 2px 0px 2px 0px;
   border-radius: 4px;
 }
