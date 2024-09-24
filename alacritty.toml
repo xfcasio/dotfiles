@@ -20,7 +20,7 @@ yellow = "0xf0c674"
 
 
 [colors.cursor]
-cursor = "0xff6b64"
+cursor = "0x789978"
 text = "0x101010"
 
 [colors.normal]

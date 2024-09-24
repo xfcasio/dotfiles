@@ -1,6 +1,9 @@
 { 
   "layer": "top",
   "position": "left",
+  "margin-top": 4,
+  "margin-bottom": 4,
+  "margin-left": 4,
   "exclusive": true,
   "width": 10,
   "modules-left": [

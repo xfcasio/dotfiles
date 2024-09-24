@@ -14,6 +14,8 @@ window#waybar {
   background-color: rgba(16, 16, 16, 1);
   color: #b3b7bd;
   min-width: 30px;
+  border: 1px solid rgba(25, 25, 25, 1);
+  border-radius: 3px;
 }
 
 #image-module {
@@ -43,7 +45,8 @@ window#waybar {
   background-color: #191919;
   margin: 0px 3px 0px 3px;
   padding: 6px 2.5px 6px 2.5px;
-  border-radius: 2px;
+  border: 1px solid rgba(16, 16, 16, 1);
+  border-radius: 1px;
 }
 
 #workspaces button {
@@ -66,7 +69,7 @@ window#waybar {
   /**background: #a175eb;**/
 
   /* background: #367bf0; ## japan theme ## */
-  background: #ff6b64;
+  background: #789978;
   color: #171c21;
   border-bottom: none;
   padding: 0px 0px 23px 0px;
@@ -166,12 +169,14 @@ tooltip label {
 }
 
 #clock {
-  background-color: #171c21;
+  font-family: 'Cartograph CF';
+  font-size: 12px;
+  background-color: #191919;
   color: #b3b7bd;
   margin: 2px;
   padding: 3px 0px 3px 0px;
+  border: 2px solid rgba(16, 16, 16, 1);
   border-radius: 4px;
-  font-size: 15px;
 }
 
 #custom-power {
