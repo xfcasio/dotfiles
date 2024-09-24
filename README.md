@@ -7,5 +7,10 @@
 </p>
 
 <p align="center">
-  <img src="https://i.imgur.com/ZX3AiAs.png" />
+    <img src="https://i.imgur.com/8BwThTE.png" />
+</p>
+
+## Older themes:
+<p align="center">
+    <img src="https://i.imgur.com/ZX3AiAs.png" />
 </p>
