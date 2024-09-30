@@ -44,4 +44,14 @@ vim.schedule(function()
   require "mappings"
 end)
 
+vim.api.nvim_exec2([[
+  autocmd CursorMoved,CursorMovedI * lua Center_cursor()
+]], { output = false })
+
+function Center_cursor()
+    local pos = vim.fn.getpos('.')
+    vim.cmd('normal! zz')
+    vim.fn.setpos('.', pos)
+end
+
 vim.cmd("set numberwidth=4")
