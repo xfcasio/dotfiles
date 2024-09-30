@@ -34,6 +34,12 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+function Center_cursor()
+    local pos = vim.fn.getpos('.')
+    vim.cmd('normal! zz')
+    vim.fn.setpos('.', pos)
+end
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
@@ -47,11 +53,5 @@ end)
 vim.api.nvim_exec2([[
   autocmd CursorMoved,CursorMovedI * lua Center_cursor()
 ]], { output = false })
-
-function Center_cursor()
-    local pos = vim.fn.getpos('.')
-    vim.cmd('normal! zz')
-    vim.fn.setpos('.', pos)
-end
 
 vim.cmd("set numberwidth=4")
