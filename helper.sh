@@ -1,7 +1,7 @@
 dots-install::desktop() {
   echo "* creating hyprland+waybar symbolic links"
-  ln -s "$HERE/hypr" "/home/$USER/.config/hypr"
-  ln -s "$HERE/waybar" "/home/$USER/.config/waybar"
+  ln -s "$HERE/hypr" "/home/$USER/.config/"
+  ln -s "$HERE/waybar" "/home/$USER/.config/"
 }
 
 dots-install::neovim() {
@@ -30,7 +30,7 @@ dots-install::applications() {
 
 dots-install::fonts() {
   echo "* installing fonts in /usr/share/fonts"
-  sudo mv fonts/* /usr/share/fonts
+  sudo cp -r "$HERE/fonts/**" /usr/share/fonts
   echo "* reloading font cache"
   fc-cache -fv > /dev/null
 }

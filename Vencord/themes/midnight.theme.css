@@ -1,10 +1,13 @@
 /**
  * @name midnight
- * @description A darkened discord theme.
+ * @description A dark, rounded discord theme.
  * @author refact0r
  * @version 1.6.2
- * @source https://github.com/refact0r/midnight-discord
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/refact0r/midnight-discord/blob/master/midnight.theme.css
  * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
 */
 
 /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
@@ -52,21 +55,21 @@
 	--message-hover: hsla(220, 0%, 0%, 0.1); /* messages when hovered */
 
 	/* amount of spacing and padding */
-	--spacing: 8px;
+	--spacing: 5px;
 
 	/* animations */
 	/* ALL ANIMATIONS CAN BE DISABLED WITH REDUCED MOTION IN DISCORD SETTINGS */
-	--list-item-transition: 0.1s ease; /* channels/members/settings hover transition */
-	--unread-bar-transition: 0.1s ease; /* unread bar moving into view transition */
-	--moon-spin-transition: 0.8s ease; /* moon icon spin */
-	--icon-spin-transition: 0.2s ease; /* round icon button spin (settings, emoji, etc.) */
+	--list-item-transition: 0.2s ease; /* channels/members/settings hover transition */
+	--unread-bar-transition: 0.2s ease; /* unread bar moving into view transition */
+	--moon-spin-transition: 0.4s ease; /* moon icon spin */
+	--icon-spin-transition: 1s ease; /* round icon button spin (settings, emoji, etc.) */
 
 	/* corner roundness (border-radius) */
-	--roundness-xl: 8px; /* roundness of big panel outer corners */
-	--roundness-l: 8px; /* popout panels */
-	--roundness-m: 8px; /* smaller panels, images, embeds */
-	--roundness-s: 8px; /* members, settings inputs */
-	--roundness-xs: 8px; /* channels, buttons */
+	--roundness-xl: 10px; /* roundness of big panel outer corners */
+	--roundness-l: 14px; /* popout panels */
+	--roundness-m: 14px; /* smaller panels, images, embeds */
+	--roundness-s: 12px; /* members, settings inputs */
+	--roundness-xs: 10px; /* channels, buttons */
 	--roundness-xxs: 8px; /* searchbar, small elements */
 
 	/* direct messages moon icon */
