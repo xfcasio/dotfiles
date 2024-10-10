@@ -1,0 +1,59 @@
+default_profile = "default"
+
+[profiles.default]
+user_id = "@xfc:monero.social"
+url = "https://matrix.monero.social"
+
+[settings]
+external_edit_file_suffix = ".md"
+log_level = "warn"
+message_shortcode_display = false
+open_command = ["xdg-open"]
+reaction_display = true
+reaction_shortcode_display = false
+read_receipt_display = true
+read_receipt_send = true
+request_timeout = 10000
+typing_notice_display = true
+typing_notice_send = true
+user_gutter_width = 30
+username_display = "displayname"
+
+[settings.image_preview]
+protocol.type = "kitty"
+size = { "width" = 130, "height" = 25 }
+
+#[settings.sort]
+#rooms = ["favorite", "lowpriority", "unread", "name"]
+#members = ["power", "id"]
+
+#[settings.users]
+#"@user:matrix.org" = { "name" = "John Doe", "color" = "magenta" }
+
+[layout]
+style = "config"
+
+[[layout.tabs]]
+window = "iamb://dms"
+
+[[layout.tabs]]
+window = "iamb://rooms"
+
+#[[layout.tabs]]
+#split = [
+#]
+
+[macros.insert]
+"jj" = "<Esc>"
+"<C-Q>" = "<C-Y>"
+"<C-S>" = "<C-E>"
+
+[macros."normal|visual"]
+"V" = "<C-W>m"
+"<C-Q>" = "<C-Y>"
+"<C-S>" = "<C-E>"
+
+[dirs]
+cache = "/home/toji/.cache/iamb/"
+logs = "/home/toji/.local/share/iamb/logs/"
+downloads = "/home/toji/Downloads/"

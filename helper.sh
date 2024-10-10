@@ -28,6 +28,11 @@ dots-install::applications() {
   ln -s "$HERE/Vencord/themes/midnight.theme.css" "/home/$USER/.config/Vencord/themes/midnight.theme.css"
 }
 
+dots-install::matrix-iamb() {
+  echo "* creating iamb config symbolic links"
+  ln -s "$HERE/iamb" "/home/$USER/.config/iamb"
+}
+
 dots-install::fonts() {
   echo "* installing fonts in /usr/share/fonts"
   sudo cp -r "$HERE/fonts/**" /usr/share/fonts

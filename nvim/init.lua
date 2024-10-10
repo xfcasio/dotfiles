@@ -55,3 +55,4 @@ vim.api.nvim_exec2([[
 ]], { output = false })
 
 vim.cmd("set numberwidth=4")
+vim.cmd("set relativenumber")
