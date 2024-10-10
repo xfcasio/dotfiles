@@ -20,7 +20,7 @@ user_gutter_width = 30
 username_display = "displayname"
 
 [settings.image_preview]
-protocol.type = "kitty"
+protocol.type = "halfblocks"
 size = { "width" = 130, "height" = 25 }
 
 #[settings.sort]
