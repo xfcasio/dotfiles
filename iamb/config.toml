@@ -27,8 +27,8 @@ size = { "width" = 130, "height" = 25 }
 #rooms = ["favorite", "lowpriority", "unread", "name"]
 #members = ["power", "id"]
 
-#[settings.users]
-#"@user:matrix.org" = { "name" = "John Doe", "color" = "magenta" }
+[settings.users]
+"@xfc:monero.social" = { "color" = "green" }
 
 [layout]
 style = "config"
@@ -50,8 +50,8 @@ window = "iamb://rooms"
 
 [macros."normal|visual"]
 "V" = "<C-W>m"
-"<C-Q>" = "<C-Y>"
-"<C-S>" = "<C-E>"
+"<S-Q>" = "<C-Y>"
+"<S-S>" = "<C-E>"
 
 [dirs]
 cache = "/home/toji/.cache/iamb/"
