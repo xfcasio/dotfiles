@@ -19,8 +19,6 @@ typing_notice_send = true
 user_gutter_width = 30
 username_display = "displayname"
 
-[settings.notifications]
-enabled = true
 
 [settings.image_preview]
 protocol.type = "halfblocks"
