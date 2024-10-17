@@ -77,7 +77,7 @@ window#waybar {
 }
 
 #tray {
-  background-color: #191919;
+  background-color: #171c21;
   margin: 3px;
   padding: 2px 0px 2px 0px;
   border-radius: 4px;
@@ -167,7 +167,7 @@ tooltip label {
 #clock {
   font-family: 'Cartograph CF';
   font-size: 12px;
-  background-color: #191919;
+  background-color: #171c21;
   color: #b3b7bd;
   margin: 2px;
   padding: 3px 0px 3px 0px;
