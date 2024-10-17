@@ -47,15 +47,15 @@
     "spacing": 3
   },
   "clock": {
-    "format": "<span foreground='#789978'>{:%I</span>
-<span foreground='#6e8d9d'>%M}</span>",
-"format-alt": "<span foreground='#6e8d9d'>{:%d</span>
-<span foreground='#789978'>%m}</span>",
+    "format": "<span foreground='#ac7bac'>{:%I</span>
+<span foreground='#367bd0'>%M}</span>",
+"format-alt": "<span foreground='#367bd0'>{:%d</span>
+<span foreground='#ac7bac'>%m}</span>",
 "on-click-right": "$HOME/.config/hypr/scripts/apps/eww.sh open calbox --toggle",
 "interval": 1,
 },
 "image#module": {
-  "path": "/home/toji/.config/waybar/pic.png",
+  "path": "/home/toji/.config/waybar/pic.svg",
   "size": 24,
   "on-click": "eww-panel",
 },

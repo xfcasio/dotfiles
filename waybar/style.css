@@ -10,11 +10,10 @@
 }
 
 window#waybar {
-  /* background-color: rgba(14, 17, 21, 1); ## japan theme ## */ 
-  background-color: rgba(16, 16, 16, 1);
+  background-color: rgba(14, 17, 21, 1);
   color: #b3b7bd;
   min-width: 30px;
-  border: 1px solid rgba(25, 25, 25, 1);
+  border: 1px solid rgba(14, 17, 21, 1);
   border-radius: 3px;
 }
 
@@ -41,8 +40,7 @@ window#waybar {
 }
 
 #workspaces {
-  /* background-color: #171c21; ## japan theme ## */
-  background-color: #191919;
+  background-color: #171c21;
   margin: 0px 3px 0px 3px;
   padding: 6px 2.5px 6px 2.5px;
   border: 1px solid rgba(16, 16, 16, 1);
@@ -50,8 +48,7 @@ window#waybar {
 }
 
 #workspaces button {
-  /* background-color: #2d3139; ## japan theme ## */
-  background-color: #333533;
+  background-color: #2d3139;
   color: #b3b7bd;
   margin: 3px 3px 0px 3px;
   padding: 1px 1px 1px 0px;
@@ -68,8 +65,7 @@ window#waybar {
   /**background: linear-gradient(135deg, #2798e4 0%, #9554ff 80%);**/
   /**background: #a175eb;**/
 
-  /* background: #367bf0; ## japan theme ## */
-  background: #789978;
+  background: #367bf0;
   color: #171c21;
   border-bottom: none;
   padding: 0px 0px 23px 0px;
