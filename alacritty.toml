@@ -48,7 +48,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 10.3
+size = 9.2
 
 [font.bold]
 family = "Spleen"
