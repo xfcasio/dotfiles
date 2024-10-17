@@ -120,12 +120,21 @@ alias zig-std='cd /usr/lib/zig/std && nvim && cd ~'
 alias gac='git add . && git commit -m'
 alias iamb='EDITOR=nvim iamb'
 
+
+BRACK_HEX="%F{#6f7475}"
+USER_HEX="%F{#789978}"
+AT_HEX="%F{#e78a4e}"
+HOST_HEX="%F{#6d8dad}"
+CWD_HEX="%F{#887aa9}"
+UID_HEX="%F{#bc3b34}"
+
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
-## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} %~ %f%k%b "
 ## PS1="%B%K{#367bf0}%F{#12171d} toji %K{#2f343f}%F{#367bf0} %~ %f%k%b "
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
-PS1="%{${fg_bold[green]}%}[%m]%{${fg_bold[cyan]}%}::%{${fg[red]}%}<%3~>%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} »%{${reset_color}%} "
+## PS1="[%{${fg_bold[magenta]}%}$USER%{${fg_bold[cyan]}%}@${fg[green]}$HOST %{${fg[red]}%}%3~%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} %{${reset_color}%}] "
+
+PS1="$BRACK_HEX""[$USER_HEX$USER$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
 
 # bun completions
 ## [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
