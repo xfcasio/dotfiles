@@ -7,10 +7,19 @@
 </p>
 
 <p align="center">
+    <img src="https://i.imgur.com/dn4ZEs5.png" />
+</p>
+
+<p align="center">
+    <img src="https://i.imgur.com/kuYhcaR.png" />
+</p>
+
+##
+<p align="center">
     <img src="https://i.imgur.com/8BwThTE.png" />
 </p>
 
-## Older themes:
+##
 <p align="center">
     <img src="https://i.imgur.com/ZX3AiAs.png" />
 </p>
