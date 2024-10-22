@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "onenord",
+  theme = 'chadtain',
 
   statusline = {
     theme = 'minimal',
@@ -30,11 +30,17 @@ M.ui = {
     NvimTreeNormalNC = { bg = 'none' },
 
     --["@comment"] = { italic = true },
+ },
+
+}
+
+M.base46 = {
+  hl_override = {
     Normal = {
       bg = "none",
-      fg = "#a9a9a9",
-    },
-  },
+      fg = "#a9a9a9", 
+    }
+  }
 }
 
 return M
