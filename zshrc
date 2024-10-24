@@ -106,6 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+sshot() {
+  sleep $1 && grim ~/Pictures/p.png &&
+    cat ~/Pictures/p.png | wl-copy
+}
+
 shot() {
   sleep $1 && grim -g "$(slurp)" ~/Pictures/p.png &&
     cat ~/Pictures/p.png | wl-copy
@@ -121,12 +126,12 @@ alias gac='git add . && git commit -m'
 alias iamb='EDITOR=nvim iamb'
 
 
-BRACK_HEX="%F{#6f7475}"
-USER_HEX="%F{#789978}"
-AT_HEX="%F{#e78a4e}"
-HOST_HEX="%F{#6d8dad}"
-CWD_HEX="%F{#887aa9}"
-UID_HEX="%F{#bc3b34}"
+BRACK_HEX="%F{#53595f}"
+USER_HEX="%F{#8aac8b}"
+AT_HEX="%F{#c9938a}"
+HOST_HEX="%F{#8f8aac}"
+CWD_HEX="%F{#7797b7}"
+UID_HEX="%F{#ac8a8c}"
 
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "

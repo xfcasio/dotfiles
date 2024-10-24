@@ -5,8 +5,6 @@
 local M = {}
 
 M.ui = {
-  theme = 'chadtain',
-
   statusline = {
     theme = 'minimal',
     separator_style = 'block'
@@ -25,22 +23,21 @@ M.ui = {
     TSMethod = { italic = true },
     TSVariable = { italic = true },
     SpecialComment = { italic = true },
-
-    NvimTreeNormal = { bg = 'none' },
-    NvimTreeNormalNC = { bg = 'none' },
-
-    --["@comment"] = { italic = true },
- },
-
+  }
 }
 
 M.base46 = {
+  theme = 'chadtain',
+
   hl_override = {
     Normal = {
       bg = "none",
       fg = "#a9a9a9", 
-    }
-  }
+    },
+
+    NvimTreeNormal = { bg = 'none' },
+    NvimTreeNormalNC = { bg = 'none' },
+  },
 }
 
 return M
