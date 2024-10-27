@@ -139,7 +139,7 @@ UID_HEX="%F{#ac8a8c}"
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
 ## PS1="[%{${fg_bold[magenta]}%}$USER%{${fg_bold[cyan]}%}@${fg[green]}$HOST %{${fg[red]}%}%3~%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} %{${reset_color}%}] "
 
-PS1="$BRACK_HEX""[$USER_HEX$USER$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
+PS1="$BRACK_HEX""[$USER_HEX$USERNAME$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
 
 # bun completions
 ## [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
