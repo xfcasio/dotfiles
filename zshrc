@@ -116,6 +116,8 @@ shot() {
     cat ~/Pictures/p.png | wl-copy
 }
 
+EDITOR=nvim
+
 alias ls=logo-ls
 alias dnf='dnf -C'
 alias grep='grep --color=always'
