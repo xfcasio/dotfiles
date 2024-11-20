@@ -1,7 +1,16 @@
-dots-install::desktop() {
-  echo "* creating hyprland+waybar symbolic links"
+dots-install::hyprland() {
+  echo "* creating hyprland symbolic link"
   ln -s "$HERE/hypr" "/home/$USER/.config/"
+}
+
+dots-install::waybar() {
+  echo "* creating waybar symbolic link"
   ln -s "$HERE/waybar" "/home/$USER/.config/"
+}
+
+dots-install::fabric() {
+  echo "* creating fabric symbolic link"
+  ln -s "$HERE/fabric" "/home/$USER/.config/"
 }
 
 dots-install::neovim() {
@@ -30,7 +39,7 @@ dots-install::applications() {
 
 dots-install::matrix-iamb() {
   echo "* creating iamb config symbolic links"
-  ln -s "$HERE/iamb" "/home/$USER/.config/iamb"
+  ln -s "$HERE/iamb" "/home/$USER/.config/"
 }
 
 dots-install::fonts() {
