@@ -159,8 +159,15 @@ menu>menuitem:hover {
 
 #ram-progress-bar,
 #cpu-progress-bar {
-    border: solid 0px alpha(var(--color9), 1);
     margin: 0px 0px 0px 0px;
+}
+
+#ram-progress-bar {
+    border: solid 0px #8f8aac;
+}
+
+#cpu-progress-bar {
+    border: solid 0px #8aac8b;
 }
 
 #volume-progress-bar {
