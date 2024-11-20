@@ -99,26 +99,13 @@ class StatusBar(Window):
             name="cpu-progress-bar", radial=True, size=2, line_width=4, spacing=1
         )
 
-        #self.progress_bars = Box(
-        #    name='progress-bars',
-        #    spacing=1,
-        #    orientation='v',
-        #    children=[self.cpu_progress_bar, self.ram_progress_bar]
-        #)
-        
-        #self.progress_bars_overlay = Box(
-        #    name="progress-indicators",
-        #    spacing=1,
-        #    orientation="v",
-        #    children=[self.cpu_progress_bar, self.ram_progress_bar]
-        #)
-       
         self.status_container = Box(
             name="widgets-container",
             spacing=4,
             orientation="v",
-            children=None#self.progress_bars_overlay,
+            children=None
         )
+        
         self.status_container.add(VolumeWidget()) if AUDIO_WIDGET is True else None
 
         self.children = CenterBox(
