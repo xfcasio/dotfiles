@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+export MANPAGER='nvim +Man!'
+
 sshot() {
   sleep $1 && grim ~/Pictures/p.png &&
     cat ~/Pictures/p.png | wl-copy
