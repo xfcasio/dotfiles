@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import psutil
+import os, psutil
 from fabric import Application
 from fabric.widgets.box import Box
 from fabric.widgets.label import Label
@@ -71,9 +71,7 @@ class VolumeWidget(Box):
 
 
 class StatusBar(Window):
-    def __init__(
-        self,
-    ):
+    def __init__(self):
         super().__init__(
             name="bar",
             layer="top",
@@ -152,14 +150,20 @@ class StatusBar(Window):
             ),
         )
 
-        invoke_repeater(1000, self.update_progress_bars)
+        self.connect("scroll-event", self.on_scroll)
 
+        invoke_repeater(1000, self.update_progress_bars)
         self.show_all()
 
     def update_progress_bars(self):
         self.ram_progress_bar.value = psutil.virtual_memory().percent / 100
         self.cpu_progress_bar.value = psutil.cpu_percent() / 100
         return True
+    
+    def on_scroll(self, _, event):
+        os.system('hyprctl dispatch workspace 1')
+        os.system('playerctl pause')
+
 
 
 if __name__ == "__main__":
