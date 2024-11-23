@@ -117,7 +117,7 @@ class StatusBar(Window):
                     Box(
                         name="profile-pic",
                         style=f"""
-                              background-image: url(\"file:///home/toji/Downloads/face.jpg\");
+                              background-image: url(\"file:///home/toji/.face.jpg\");
                               padding: 10px 10px 13px 10px;
                               margin: 4px 1px 1px 1px;
                               border-radius: 10px;
