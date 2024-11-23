@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3.12
 import os, psutil
 from fabric import Application
 from fabric.widgets.box import Box

@@ -1,5 +1,3 @@
-live_config_reload = true
-
 [bell]
 animation = "EaseOutExpo"
 color = "0x000000"
@@ -381,7 +379,7 @@ multiplier = 3
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]
