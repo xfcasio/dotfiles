@@ -44,8 +44,13 @@ dots-install::matrix-iamb() {
 
 dots-install::fonts() {
   echo "* installing fonts in /usr/share/fonts"
-  sudo cp -r "$HERE/fonts/**" /usr/share/fonts
+  $SUDO cp -r "$HERE/fonts/**" /usr/share/fonts
   echo "* reloading font cache"
   fc-cache -fv > /dev/null
 }
 
+dots-install::bins() {
+  echo "* installing bins/* to /usr/local/bin/"
+  $SUDO ln -s "$HERE/bins/shot /usr/local/bin/"
+  $SUDO ln -s "$HERE/bins/sshot /usr/local/bin/"
+}
