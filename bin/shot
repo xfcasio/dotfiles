@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+grim -g "$(slurp)" ~/Pictures/a.png   \
+	&& swappy -f ~/Pictures/a.png
