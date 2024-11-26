@@ -121,7 +121,6 @@ shot() {
 EDITOR=nvim
 
 alias ls=logo-ls
-alias dnf='dnf -C'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias q=exit

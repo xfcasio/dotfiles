@@ -37,6 +37,11 @@ dots-install::applications() {
   ln -s "$HERE/Vencord/themes/midnight.theme.css" "/home/$USER/.config/Vencord/themes/midnight.theme.css"
 }
 
+dots-install::neofetch() {
+  echo "* creating neofetch symbolic link"
+  ln -s "$HERE/neofetch" "/home/$USER/.config/"
+}
+
 dots-install::matrix-iamb() {
   echo "* creating iamb config symbolic links"
   ln -s "$HERE/iamb" "/home/$USER/.config/"
