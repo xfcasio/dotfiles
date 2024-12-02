@@ -1,5 +1,7 @@
 #!/usr/bin/python3.12
 import os, psutil
+from subprocess import check_output
+from os import getcwd
 from fabric import Application
 from fabric.widgets.box import Box
 from fabric.widgets.label import Label
@@ -103,6 +105,11 @@ class StatusBar(Window):
             orientation="v",
             children=None
         )
+
+        self.internet_connection = Box(
+            name="internet-container",
+            spacing=4,
+        )
         
         self.status_container.add(VolumeWidget()) if AUDIO_WIDGET is True else None
 
@@ -116,7 +123,7 @@ class StatusBar(Window):
                 children=[
                     Box(
                         name="profile-pic",
-                        style=f"""
+                        style="""
                               background-image: url(\"file:///home/toji/.face.jpg\");
                               padding: 10px 10px 13px 10px;
                               margin: 4px 1px 1px 1px;
@@ -139,6 +146,7 @@ class StatusBar(Window):
                 orientation="v",
                 children=[
                     self.system_tray,
+                    ### self.internet_connection,
                     Box(
                         name='radial-indicators',
                         spacing=1,
@@ -152,12 +160,20 @@ class StatusBar(Window):
 
         self.connect("scroll-event", self.on_scroll)
 
+        #invoke_repeater(1000, self.update_internet_status)
         invoke_repeater(1000, self.update_progress_bars)
+
         self.show_all()
 
     def update_progress_bars(self):
         self.ram_progress_bar.value = psutil.virtual_memory().percent / 100
         self.cpu_progress_bar.value = psutil.cpu_percent() / 100
+        return True
+
+    def update_internet_status(self):
+        print("test")
+        ping_result = int(check_output(['ping', '1.0.0.1', '-c1']).decode('utf-8').split('\n')[-3].split(' ')[5][:1])
+        if ping_result == 0: self.internet_connection.style = f"background-image: url(\"file://{getcwd()}/svg/connected.svg\")"
         return True
     
     def on_scroll(self, _, event):

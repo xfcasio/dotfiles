@@ -110,8 +110,15 @@ menu>menuitem>label,
   border-radius: 4px;
 }
 
+#internet-container {
+    background-image: url("file:///home/toji/.face.jpg");
+    padding: 10px 10px 13px 10px;
+    margin: 4px 1px 1px 1px;
+    border-radius: 10px;
+}
+
 /* system tray */
-#system-tray {
+#system-tray, #internet-container {
     padding: 6px 5px 6px 5px;
     background-color: var(--module-bg);
     border: 1px solid rgba(16, 16, 16, 1);
