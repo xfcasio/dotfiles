@@ -50,9 +50,9 @@ vim.schedule(function()
   require "mappings"
 end)
 
-vim.api.nvim_exec2([[
-  autocmd CursorMoved,CursorMovedI * lua Center_cursor()
-]], { output = false })
+-- vim.api.nvim_exec2([[
+--   autocmd CursorMoved,CursorMovedI * lua Center_cursor()
+-- ]], { output = false })
 
 vim.cmd("set numberwidth=4")
 vim.cmd("set relativenumber")
