@@ -372,7 +372,7 @@ action = "PasteSelection"
 mouse = "Middle"
 
 [scrolling]
-history = 400
+history = 600
 multiplier = 3
 
 [selection]
@@ -385,7 +385,7 @@ program = "/usr/bin/zsh"
 [window]
 decorations = "buttonless"
 dynamic_padding = true
-opacity = 0.98
+opacity = 1.00
 startup_mode = "Windowed"
 
 [window.dimensions]
