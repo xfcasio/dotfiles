@@ -3,6 +3,12 @@ dots-install::hyprland() {
   ln -s "$HERE/hypr" "/home/$USER/.config/"
 }
 
+dots-install::wallpaper() {
+  echo "* creating wallpaper symlink"
+  $SUDO rm -f /usr/share/hypr/wall0.png
+  $SUDO ln -s "$1" /usr/share/hypr/wall0.png
+}
+
 dots-install::waybar() {
   echo "* creating waybar symbolic link"
   ln -s "$HERE/waybar" "/home/$USER/.config/"
