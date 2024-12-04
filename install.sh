@@ -9,6 +9,12 @@ SUDO=$(which doas 2> /dev/null)
 
 HYPR_WALL="$HERE/Wallpapers/hut.png"
 
+# NOTE: #######################################################
+#  for the bar to actually display your profile picture,      #
+#  make sure to put your JPEG profile picture in ~/.face.jpg  #
+#  and make sure It's between 23x23 to 25x25 pixels.          #
+############################################################# #
+
 # Comment out what you need not be installed:
 dots-install::hyprland                # yes
 dots-install::wallpaper $HYPR_WALL    # installed to hyprland's default wall0.png (/usr/share/hypr)
