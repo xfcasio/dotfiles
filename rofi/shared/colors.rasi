@@ -26,7 +26,7 @@
 * {
     /*background:     #1E2127FF;*/
     background:     #0e1115FF;
-    background-alt: #2a2a2aFF;
+    background-alt: #1f2226ff;
     foreground:     #FFFFFFFF;
     selected:       #7788AAef;
     active:         #7788AAef;

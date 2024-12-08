@@ -53,19 +53,19 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    south west;
+    anchor:                      south west;
     fullscreen:                  false;
-    width:                       600px;
-    x-offset:                    0px;
-    y-offset:                    0px;
+    width:                       350px;
+    x-offset:                    6px;
+    y-offset:                   -6px;
 
     /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               5px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -193,7 +193,7 @@ element {
     margin:                      0px;
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               5px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
