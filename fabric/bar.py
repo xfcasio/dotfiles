@@ -127,7 +127,7 @@ class StatusBar(Window):
                               background-image: url(\"file:///home/toji/.face.jpg\");
                               padding: 10px 10px 13px 10px;
                               margin: 4px 1px 1px 1px;
-                              border-radius: 10px;
+                              border-radius: 7px;
                             """,
                     )
                 ]
