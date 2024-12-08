@@ -152,7 +152,7 @@ class StatusBar(Window):
                         spacing=1,
                         orientation='v',
                         children = [self.cpu_progress_bar, self.ram_progress_bar],
-                        style = "background: #171c21; padding: 6px 5px 6px 5px; border-radius: 5px; margin: 0px 0px 5px 0px;"
+                        style = "background: #171c21; padding: 6px 5px 6px 5px; border-radius: 5px; margin: 0px 0px 1px 0px;"
                     ),
                 ],
             ),

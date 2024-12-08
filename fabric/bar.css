@@ -43,7 +43,7 @@ button {
 }
 
 #bar-inner {
-    padding: 4px;
+    padding: 5px;
     border: solid 0px;
     border-color: var(--border-color);
     background-color: var(--window-bg);
