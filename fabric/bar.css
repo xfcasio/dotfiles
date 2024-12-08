@@ -4,21 +4,21 @@
     --background: #0e1115;
     --foreground: #b3b7bd;
     --color0: #0e1115;
-    --color1: #367bf0;
-    --color2: #367bf0;
+    --color1: #7788AA;
+    --color2: #7788AA;
     --color3: #2d3139;
-    --color4: #367bf0;
-    --color5: #367bf0;
-    --color6: #367bf0;
-    --color7: #367bf0;
+    --color4: #7788AA;
+    --color5: #7788AA;
+    --color6: #7788AA;
+    --color7: #7788AA;
     --color8: #2d3139;
-    --color9: #367bf0;
-    --color10: #367bf0;
-    --color11: #367bf0;
-    --color12: #367bf0;
-    --color13: #367bf0;
-    --color14: #367bf0;
-    --color15: #367bf0;
+    --color9: #7788AA;
+    --color10: #7788AA;
+    --color11: #7788AA;
+    --color12: #7788AA;
+    --color13: #7788AA;
+    --color14: #7788AA;
+    --color15: #7788AA;
     --window-bg: alpha(var(--background), 1);
     --module-bg: #171c21;
     --border-color: var(--background);
@@ -35,7 +35,7 @@
     color: var(--foreground);
     font-size: 12px;
     font-family: "Jost*", sans-serif;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 button {
