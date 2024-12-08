@@ -7,7 +7,7 @@ HERE="/home/$USER/dotfiles"
 SUDO=$(which doas 2> /dev/null)
 [ $? -eq 1 ] && SUDO=sudo
 
-HYPR_WALL="$HERE/Wallpapers/hut.png"
+HYPR_WALL="$HERE/Wallpapers/nord_beach.png"
 
 # NOTE: #######################################################
 #  for the bar to actually display your profile picture,      #

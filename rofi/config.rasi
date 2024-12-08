@@ -105,7 +105,7 @@ inputbar {
     background-color:            transparent;
     text-color:                  transparent;
     /*children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];*/
-    background-image:            url("~/dotfiles/Wallpapers/radio.jpg", width);
+    background-image:            url("~/dotfiles/Wallpapers/nord_beach.low_res.png", width);
     orientation: vertical;
 }
 
