@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+APP=$(pass ls | tail -"$(( $(pass ls | wc -l) - 1))" | awk '{ print $2 }' | rofi -dmenu)
+
+[[ $? == 0 ]] || exit 1
+
+[[ $APP == 'github' ]]      \
+  && pass otp github | wlc  \
+  || pass $APP | wlc

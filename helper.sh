@@ -61,7 +61,8 @@ dots-install::fonts() {
 }
 
 dots-install::bins() {
-  echo "* installing bins/* to /usr/local/bin/"
-  $SUDO ln -s "$HERE/bins/shot /usr/local/bin/"
-  $SUDO ln -s "$HERE/bins/sshot /usr/local/bin/"
+  echo "* installing bin/* to /usr/local/bin/"
+  $SUDO ln -s "$HERE/bin/shot" "/usr/local/bin/"
+  $SUDO ln -s "$HERE/bin/sshot" "/usr/local/bin/"
+  $SUDO ln -s "$HERE/bin/getpass" "/usr/local/bin/"
 }
