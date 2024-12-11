@@ -77,8 +77,8 @@ class StatusBar(Window):
         super().__init__(
             name="bar",
             layer="top",
-            anchor="left top bottom",
-            margin="5px 0px 5px 2px",
+            anchor="left top right",
+            margin="2px 4px -3px 2px",
             exclusivity="auto",
             visible=False,
             all_visible=False,
@@ -86,23 +86,23 @@ class StatusBar(Window):
         self.workspaces = Workspaces(
             name="workspaces",
             spacing=4,
-            buttons_factory=lambda ws_id: WorkspaceButton(id=ws_id, label=None, orientation='v'),
-            orientation = 'v'
+            buttons_factory=lambda ws_id: WorkspaceButton(id=ws_id, label=None, orientation="h"),
+            orientation = 'h'
         )
         self.date_time = DateTime(name="date-time", v_align='center', formatters = ("%I\n%M"))
-        self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=13, orientation='v')
+        self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=13, orientation="h")
 
         self.ram_progress_bar = CircularProgressBar(
-            name="ram-progress-bar", radial=True, size=2, line_width=4, spacing=1
+            name="ram-progress-bar", radial=True, size=15, line_width=4, spacing=1, padding=10
         )
         self.cpu_progress_bar = CircularProgressBar(
-            name="cpu-progress-bar", radial=True, size=2, line_width=4, spacing=1
+            name="cpu-progress-bar", radial=True, size=15, line_width=4, spacing=1, padding=10
         )
 
         self.status_container = Box(
             name="widgets-container",
             spacing=4,
-            orientation="v",
+            orientation="h",
             children=None
         )
 
@@ -114,21 +114,26 @@ class StatusBar(Window):
         self.status_container.add(VolumeWidget()) if AUDIO_WIDGET is True else None
 
         self.children = CenterBox(
-            orientation = 'v',
+            orientation="h",
             name="bar-inner",
             start_children = Box(
                 name = "start-container",
                 spacing=4,
-                orientation = "v",
+                orientation="h",
                 children=[
+                    Box(
+                        name="pfp-container",
+                        children=[
                     Box(
                         name="profile-pic",
                         style="""
                               background-image: url(\"file:///home/toji/.face.jpg\");
-                              padding: 10px 10px 13px 10px;
-                              margin: 4px 1px 1px 1px;
+                              padding: 10px 10px 10px 12px;
+                              margin: 0px 0px 0px 1px;
                               border-radius: 7px;
                             """,
+                    )
+                        ]
                     )
                 ]
             ),
@@ -136,23 +141,23 @@ class StatusBar(Window):
             center_children = Box(
                 name="middle-container",
                 spacing=4,
-                orientation="v",
+                orientation="h",
                 children=self.workspaces,
             ),
 
             end_children = Box(
                 name="end-container",
                 spacing=4,
-                orientation="v",
+                orientation="h",
                 children=[
                     self.system_tray,
                     ### self.internet_connection,
                     Box(
                         name='radial-indicators',
                         spacing=1,
-                        orientation='v',
+                        orientation="h",
                         children = [self.cpu_progress_bar, self.ram_progress_bar],
-                        style = "background: #171c21; padding: 6px 5px 6px 5px; border-radius: 5px; margin: 0px 0px 1px 0px;"
+                        style = "background: #171c21;"# padding: 6px 5px 6px 5px; border-radius: 5px; margin: 0px 0px 1px 0px;"
                     ),
                 ],
             ),
