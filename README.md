@@ -7,11 +7,11 @@
 </p>
 
 <p align="center">
-    <img src="https://i.imgur.com/Qkda2RG.png" />
+    <img src="https://i.imgur.com/iXLEv4l.png" />
 </p>
 
 <p align="center">
-    <img src="https://i.imgur.com/iiXYqpV.png" />
+    <img src="https://i.imgur.com/Qkda2RG.png" />
 </p>
 
 ## Older rices available in git history:
