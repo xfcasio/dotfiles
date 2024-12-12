@@ -90,7 +90,7 @@ class StatusBar(Window):
             orientation = 'h'
         )
         self.date_time = DateTime(name="date-time", v_align='center', formatters = ("%I\n%M"))
-        self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=13, orientation="h")
+        self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=16, orientation="h")
 
         self.ram_progress_bar = CircularProgressBar(
             name="ram-progress-bar", radial=True, size=15, line_width=4, spacing=1, padding=10
