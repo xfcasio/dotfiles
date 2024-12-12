@@ -108,15 +108,15 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPAGER='nvim +Man!'
 
-sshot() {
-  sleep $1 && grim ~/Pictures/p.png &&
-    cat ~/Pictures/p.png | wl-copy
-}
+## sshot() {
+##  sleep $1 && grim ~/Pictures/p.png &&
+##    cat ~/Pictures/p.png | wl-copy
+## }
 
-shot() {
-  sleep $1 && grim -g "$(slurp)" ~/Pictures/p.png &&
-    cat ~/Pictures/p.png | wl-copy
-}
+## shot() {
+##  sleep $1 && grim -g "$(slurp)" ~/Pictures/p.png &&
+##    cat ~/Pictures/p.png | wl-copy
+## }
 
 EDITOR=nvim
 
