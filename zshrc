@@ -83,14 +83,14 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
     ZSH_HIGHLIGHT_STYLES[default]=none
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
+#   ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
     ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
-    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
+    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green
     ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-    ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
+    ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,bold
     ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[path]=bold
+    ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,bold
+    ZSH_HIGHLIGHT_STYLES[path]=purple,bold
     ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
     ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
     ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
@@ -124,6 +124,14 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
+
+# enable auto-suggestions based on the history
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#3E424A'
+fi
+  
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -167,7 +175,7 @@ export MANPAGER='nvim +Man!'
 
 EDITOR=nvim
 
-alias ls=logo-ls
+alias ls='nerd-ls -i'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias q=exit
