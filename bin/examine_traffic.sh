@@ -12,6 +12,6 @@ for ip in $(cat $TEMP | sort -rn | uniq); do
   printf '%7d %20s : [%s] [%s]\n' $freq $ip \
     "$(whois $ip | grep 'Organization' || echo 'No Registered Organization')" \
     "$(whois $ip | grep 'City' || echo 'No Registered City')"
-done
+done | sort -rn
 
 rm $TEMP 
