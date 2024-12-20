@@ -1,6 +1,7 @@
 #!/usr/bin/python3.12
 import os, psutil
 from subprocess import check_output
+from getpass import getuser
 from os import getcwd
 from fabric import Application
 from fabric.widgets.box import Box
@@ -126,8 +127,8 @@ class StatusBar(Window):
                         children=[
                     Box(
                         name="profile-pic",
-                        style="""
-                              background-image: url(\"file:///home/toji/.face.jpg\");
+                        style=f"""
+                              background-image: url(\"file:///home/{getuser()}/.face.jpg\");
                               padding: 10px 10px 10px 12px;
                               margin: 0px 0px 0px 1px;
                               border-radius: 7px;
