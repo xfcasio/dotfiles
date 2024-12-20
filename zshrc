@@ -176,6 +176,9 @@ export MANPAGER='nvim +Man!'
 EDITOR=nvim
 
 alias ls='nerd-ls -i'
+alias ll='nerd-ls -i -l'
+alias l='nerd-ls -i -l'
+alias la='nerd-ls -i -la'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias q=exit
