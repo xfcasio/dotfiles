@@ -90,7 +90,7 @@ class StatusBar(Window):
             buttons_factory=lambda ws_id: WorkspaceButton(id=ws_id, label=None, orientation="h"),
             orientation = 'h'
         )
-        self.date_time = DateTime(name="date-time", v_align='center', formatters = ("%I\n%M"))
+        self.date_time = DateTime(name="date-time", h_align='center', formatters = ("%I:%M"))
         self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=16, orientation="h")
 
         self.ram_progress_bar = CircularProgressBar(
@@ -153,6 +153,7 @@ class StatusBar(Window):
                 children=[
                     self.system_tray,
                     ### self.internet_connection,
+                    ### self.date_time,
                     Box(
                         name='radial-indicators',
                         spacing=1,

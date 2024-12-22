@@ -99,13 +99,13 @@ menu>menuitem>label,
 }
 
 #date-time {
-  font-family: 'Ac437 PhoenixVGA 9x14';
-  font-size: 1px;
+  font-family: 'Spleen';
+  font-size: 20px;
   background-color: #171c21;
   color: #367bf0;
   margin: 0px;
-  padding: 3px 0px 3px 0px;
-  border: 1px solid rgba(16, 16, 16, 1);
+  padding: 2px 4px 2px 4px;
+  /*border: 1px solid rgba(16, 16, 16, 1);*/
   border-radius: 4px;
 }
 
