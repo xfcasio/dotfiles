@@ -181,6 +181,7 @@ alias l='nerd-ls -i -l'
 alias la='nerd-ls -i -la'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
+alias b64='base64'
 alias q=exit
 alias zig-std='cd /usr/lib/zig/std && nvim && cd ~'
 alias gac='git add . && git commit -m'
