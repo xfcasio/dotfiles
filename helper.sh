@@ -55,7 +55,7 @@ dots-install::matrix-iamb() {
 
 dots-install::fonts() {
   echo "* installing fonts in /usr/share/fonts"
-  $SUDO cp -r "$HERE/fonts/**" /usr/share/fonts
+  $SUDO cp -r "$HERE/fonts/"* /usr/share/fonts
   echo "* reloading font cache"
   fc-cache -fv > /dev/null
 }
