@@ -62,5 +62,5 @@ dots-install::fonts() {
 
 dots-install::bins() {
   echo "* installing bin/* to /usr/local/bin/"
-  $SUDO ln -s "$HERE/bin/*" "/usr/local/bin/"
+  $SUDO find bin -type f -exec ln -s "$HERE/"{} "/usr/local/bin" \;
 }

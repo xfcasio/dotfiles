@@ -1,0 +1,29 @@
+#!/usr/bin/zsh
+
+function show_usage() {
+  echo 'usage: ./check_domains [COMMAND] domains.txt'
+  echo
+  echo 'COMMANDS:'
+  echo '    -a, --alive    show domains that are up.'
+  echo '    -d, --dead     show domains that are down.'
+
+  exit 1
+}
+
+[ $# -ne '2' ] && show_usage
+
+case $1 in
+  --alive) alive=1 ;;
+  --dead) alive=0 ;;
+  -a) alive=1 ;;
+  -d) alive=0 ;;
+  *) show_usage ;;
+esac
+
+{ for domain in $(cat $2); do
+  {
+    ip=$(dig +short "$domain")
+    [ -z "$ip" ] && { printf "[-] %-40s: not found\n" $domain; continue }
+    printf "[+] %-40s: found\n" $domain
+  } &
+done 2>/dev/null } | grep $([ $alive -eq '1' ] && echo '[+]' || echo '\[-\]')
