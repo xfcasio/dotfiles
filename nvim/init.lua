@@ -54,6 +54,13 @@ end)
 --   autocmd CursorMoved,CursorMovedI * lua Center_cursor()
 -- ]], { output = false })
 
+require("nvim-tree").setup({
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
+})
+
 vim.cmd("set numberwidth=4")
 vim.cmd("set relativenumber")
 
