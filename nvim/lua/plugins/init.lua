@@ -66,4 +66,16 @@ return {
       },
     },
   },
+
+--   {
+--     "IogaMaster/neocord",
+--     event = "VeryLazy",
+--     config = {
+--       main_image = "language",
+--       show_time = true,
+--       workspace_text = function()
+--         return "using NvChad"
+--       end,
+--     },
+--   },
 }
