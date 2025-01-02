@@ -67,7 +67,11 @@ vim.cmd("set relativenumber")
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', 'w', 'k', opts)  -- w to move up
-map('n', 'a', 'h', opts)  -- a to move left
-map('n', 's', 'j', opts)  -- s to move down
-map('n', 'd', 'l', opts)  -- d to move right
+-- map('n', 'p', 'k', opts)  -- w to move up
+-- map('n', 'a', 'h', opts)  -- a to move left
+-- map('n', 's', 'j', opts)  -- s to move down
+-- map('n', 'd', 'l', opts)  -- d to move right
+
+-- Move selected chunk up/down with alt
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
