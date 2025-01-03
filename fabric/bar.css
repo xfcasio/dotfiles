@@ -50,16 +50,22 @@ button {
 }
 
 #workspaces {
-    padding: 6px;
+    padding: 6px 13px 6px 13px;
+    margin: 2px;
     min-height: 0px;
     background-color: var(--module-bg);
 }
 
 #workspaces>button {
-    padding: 8px 20px 0px 0px;
+    padding: 0px 20px 0px 0px;
     transition: padding 0.05s steps(8);
     background-color: var(--ws-inactive);
-    border-radius: 2px;
+    border-radius: 1px;
+}
+
+#workspaces>button.active {
+  padding: 0px 45px 0px 0px;
+  background-color: var(--ws-active);
 }
 
 #workspaces>button>label {
@@ -74,10 +80,6 @@ button {
     background-color: var(--ws-urgent);
 }
 
-#workspaces>button.active {
-    padding: 8px 45px 0px 0px;
-    background-color: var(--ws-active);
-}
 
 #workspaces>button.empty {
     background-color: var(--ws-empty);
