@@ -25,10 +25,10 @@
 
 * {
     /*background:     #1E2127FF;*/
-    background:     #0e1115FF;
+    background:     #000A0EFF;
     background-alt: #1f2226ff;
     foreground:     #FFFFFFFF;
-    selected:       #367BF0ef;
-    active:         #367BF0ef;
+    selected:       #78B892ef;
+    active:         #78B892ef;
     urgent:         #E06C75FF;
 }

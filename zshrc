@@ -189,15 +189,15 @@ alias iamb='EDITOR=nvim iamb'
 
 
 BRACK_HEX="%F{#53595f}"
-USER_HEX="%F{#8aac8b}"
+USER_HEX="%F{#78B892}"
 AT_HEX="%F{#c9938a}"
-HOST_HEX="%F{#8f8aac}"
+HOST_HEX="%F{#C488EC}"
 CWD_HEX="%F{#7797b7}"
-UID_HEX="%F{#ac8a8c}"
+UID_HEX="%F{#F26E74}"
 
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
-PS1="%B%K{#367BF0}%F{#12171d} $HOSTNAME %K{#171C21}%F{#367BF0} %~ %f%k%b "
+PS1="%B%K{#78B892}%F{#12171d} $HOSTNAME %K{#171C21}%F{#78B892} %~ %f%k%b "
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
 ## PS1="[%{${fg_bold[magenta]}%}$USER%{${fg_bold[cyan]}%}@${fg[green]}$HOST %{${fg[red]}%}%3~%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} %{${reset_color}%}] "
 

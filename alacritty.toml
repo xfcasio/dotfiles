@@ -8,8 +8,8 @@ draw_bold_text_with_bright_colors = false
 
 [colors.bright]
 black = "0x080808"
-blue = "0x367BF0"
-cyan = "0x6e8d9d"
+blue = "0x78B892"
+cyan = "0x78B892"
 green = "0x789978"
 magenta = "0xb86cd4"
 red = "0xe64a6b"
@@ -18,22 +18,22 @@ yellow = "0xf0c674"
 
 
 [colors.cursor]
-cursor = "0x6E8D9D"
+cursor = "0x78B892"
 text = "0x101010"
 
 [colors.normal]
 black = "0x080808"
-blue = "0x6B8BAB"
-cyan = "0x6e8d9d"
-green = "0x8AAC8B"
-magenta = "0x8F8AAC"
-red = "0xAC8A8C"
-white = "0x8A949C"
-yellow = "0xC4C19E"
+blue = "0x79AAEB"
+cyan = "0x78B892"
+green = "0x78B892"
+magenta = "0xC488EC"
+red = "0xF26E74"
+white = "0xA9A9A9"
+yellow = "0xE9967E"
 
 [colors.primary]
-background = "0x0e1115"
-foreground = "0x8a949c"
+background = "0x000A0E"
+foreground = "0xA9A9A9"
 
 [cursor]
 style = "Block"

@@ -40,7 +40,7 @@ dots-install::applications() {
   ln -s "$HERE/rofi" "/home/$USER/.config/"
 
   mkdir -p ~/.config/Vencord/themes
-  ln -s "$HERE/Vencord/themes/midnight.theme.css" "/home/$USER/.config/Vencord/themes/midnight.theme.css"
+  ln -s "$HERE/Vencord/themes/rxyhn.theme.css" "/home/$USER/.config/Vencord/themes/rxyhn.theme.css"
 }
 
 dots-install::neofetch() {
