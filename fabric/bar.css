@@ -20,7 +20,7 @@
     --color14: #78B892;
     --color15: #78B892;
     --window-bg: alpha(var(--background), 1);
-    --module-bg: #171C21;
+    --module-bg: #111A1F;
     --border-color: var(--background);
     --ws-active: var(--color9);
     --ws-inactive: var(--color3);
