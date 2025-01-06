@@ -46,6 +46,7 @@ button {
     padding: 5px;
     border-color: var(--border-color);
     background-color: var(--window-bg);
+    border-radius: 0px;
 /*    min-height: 28px;*/
 }
 
@@ -98,6 +99,25 @@ menu>menuitem>label,
 #hyprland-language>label,
 #hyprland-window>label {
     font-weight: 900;
+}
+
+#all-corners {
+  border-right: 9px solid var(--background);
+  border-top: 1px solid var(--background);
+  border-bottom: 7px solid var(--background);
+  border-left: 7px solid var(--background);
+  border-radius: 0px;
+}
+
+#corner {
+    background-color: var(--background);
+    border-radius: 0;
+}
+
+#corner-container {
+  min-width: 20px;
+  min-height: 5px;
+  margin: 0px -15px 0px 0px;
 }
 
 #date-time {

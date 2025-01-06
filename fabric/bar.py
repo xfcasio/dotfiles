@@ -5,6 +5,7 @@ from getpass import getuser
 from os import getcwd
 from fabric import Application
 from fabric.widgets.box import Box
+from fabric.widgets.shapes import Corner
 from fabric.widgets.label import Label
 from fabric.widgets.overlay import Overlay
 from fabric.widgets.eventbox import EventBox
@@ -79,7 +80,7 @@ class StatusBar(Window):
             name="bar",
             layer="top",
             anchor="left top right",
-            margin="2px 4px -3px 2px",
+            #margin="2px 4px -3px 2px",
             exclusivity="auto",
             visible=False,
             all_visible=False,
@@ -154,6 +155,7 @@ class StatusBar(Window):
                     self.system_tray,
                     ### self.internet_connection,
                     ### self.date_time,
+                    Corner(orientation='bottom-right', style='background: #000000;'),
                     Box(
                         name='radial-indicators',
                         spacing=1,
@@ -187,11 +189,71 @@ class StatusBar(Window):
         os.system('hyprctl dispatch workspace 1')
         os.system('playerctl pause')
 
+class MyCorner(Box):
+    def __init__(self, corner):
+        super().__init__(
+            name="corner-container",
+            children=Corner(
+                name="corner",
+                orientation=corner,
+                #style = 'margin: 40px;',# if 'right' in corner else 'margin: 0px 0px 0px 0px;',
+                size=5,
+            ),
+        )
+
+class Corners(Window):
+    def __init__(self):
+        super().__init__(
+            name="corners",
+            layer="top",
+            anchor="top bottom left right",
+            exclusivity="normal",
+            pass_through=True,
+            visible=False,
+            all_visible=False,
+        )
+
+        self.all_corners = Box(
+            name="all-corners",
+            orientation="v",
+            h_expand=True,
+            v_expand=True,
+            h_align="fill",
+            v_align="fill",
+            children=[
+                Box(
+                    name="top-corners",
+                    orientation="h",
+                    h_align="fill",
+                    children=[
+                        MyCorner("top-left"),
+                        Box(h_expand=True),
+                        MyCorner("top-right"),
+                    ],
+                ),
+                Box(v_expand=True),
+                Box(
+                    name="bottom-corners",
+                    orientation="h",
+                    h_align="fill",
+                    children=[
+                        MyCorner("bottom-left"),
+                        Box(h_expand=True),
+                        MyCorner("bottom-right"),
+                    ],
+                ),
+            ],
+        )
+
+        self.add(self.all_corners)
+
+        self.show_all()
 
 
 if __name__ == "__main__":
     bar = StatusBar()
     app = Application("bar", bar)
+    corners = Corners()
     app.set_stylesheet_from_file(get_relative_path("bar.css"))
 
     app.run()

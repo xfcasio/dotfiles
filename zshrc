@@ -112,7 +112,7 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
     ZSH_HIGHLIGHT_STYLES[assign]=none
     ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+    ZSH_HIGHLIGHT_STYLES[comment]=fg=gray,bold
     ZSH_HIGHLIGHT_STYLES[named-fd]=none
     ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
     ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
@@ -192,7 +192,7 @@ BRACK_HEX="%F{#53595f}"
 USER_HEX="%F{#78B892}"
 AT_HEX="%F{#c9938a}"
 HOST_HEX="%F{#C488EC}"
-CWD_HEX="%F{#7797b7}"
+CWD_HEX="%F{#6791C9}"
 UID_HEX="%F{#F26E74}"
 
 #PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '

@@ -57,7 +57,7 @@ window {
     anchor:                      north west;
     fullscreen:                  false;
     width:                       350px;
-    x-offset:                    3px;
+    x-offset:                    13px;
     y-offset:                    6px;
 
     /* properties for all widgets */
@@ -105,7 +105,7 @@ inputbar {
     background-color:            transparent;
     text-color:                  transparent;
     /*children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];*/
-    background-image:            url("~/dotfiles/Wallpapers/AmusementParkNeon.low_res.png", width);
+    background-image:            url("~/dotfiles/Wallpapers/keyboards.low_res.png", width);
     orientation: vertical;
 }
 
