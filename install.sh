@@ -2,7 +2,7 @@
 
 ############# DEBUG #############
 # SET TO `true` TO SEE ERRORS
-DEBUG=false
+DEBUG=true
 #################################
 
 $DEBUG \
@@ -18,7 +18,7 @@ $DEBUG \
   SUDO=$(which doas 2> /dev/null)
   [ $? -eq 1 ] && SUDO=sudo
   
-  HYPR_WALL="$HERE/Wallpapers/j.png"
+  HYPR_WALL="$HERE/Wallpapers/astronaut.png"
   
   # NOTE: #######################################################
   #  for the bar to actually display your profile picture,      #

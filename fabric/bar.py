@@ -155,7 +155,7 @@ class StatusBar(Window):
                     self.system_tray,
                     ### self.internet_connection,
                     ### self.date_time,
-                    Corner(orientation='bottom-right', style='background: #000000;'),
+                    # Corner(orientation='bottom-right', style='background: #000000;'),
                     Box(
                         name='radial-indicators',
                         spacing=1,

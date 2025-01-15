@@ -143,7 +143,6 @@ menu>menuitem>label,
     padding: 1px 5px 1px 5px;
     margin: -2px 3px -2px -2px;
     background-color: var(--module-bg);
-    border: 1px solid rgba(16, 16, 16, 1);
     border-radius: 5px;
 }
 
@@ -192,16 +191,16 @@ menu>menuitem:hover {
 }
 
 #radial-indicators {
-  margin: -1px 0px -1px -1px;
+  margin: -1px 1px -1px -1px;
   padding: 1px 6px 1px 6px;
-}
-
-#ram-progress-bar {
-    border: solid 0px #C488EC;
 }
 
 #cpu-progress-bar {
     border: solid 0px #78B892;
+}
+
+#ram-progress-bar {
+    border: solid 0px #F26E74;
 }
 
 #volume-progress-bar {
