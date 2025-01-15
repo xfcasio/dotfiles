@@ -195,7 +195,7 @@ HOST_HEX="%F{#C488EC}"
 CWD_HEX="%F{#6791C9}"
 UID_HEX="%F{#F26E74}"
 
-#PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
+## PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
 PS1="%B%K{#78B892}%F{#12171d} $HOSTNAME %K{#171C21}%F{#78B892} %~ %f%k%b "
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
@@ -203,10 +203,4 @@ PS1="%B%K{#78B892}%F{#12171d} $HOSTNAME %K{#171C21}%F{#78B892} %~ %f%k%b "
 
 ## PS1="$BRACK_HEX""[$USER_HEX$USERNAME$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
 
-# bun completions
-## [ -s "/home/toji/.bun/_bun" ] && source "/home/toji/.bun/_bun"
-
-## export RUSTUP_HOME=/opt/rustup
-# bun
-## export BUN_INSTALL="$HOME/.bun"
-## export PATH="$HOME/.cargo/bin/:$PATH"
+export PATH="$HOME/.cargo/bin/:$HOME/.local/bin/:$PATH"
