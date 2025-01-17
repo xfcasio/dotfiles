@@ -197,7 +197,7 @@ UID_HEX="%F{#F26E74}"
 
 ## PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
-PS1="%B%K{#78B892}%F{#12171d} $HOSTNAME %K{#171C21}%F{#78B892} %~ %f%k%b "
+PS1="%K{#131E22} %B%K{#78B892}%F{#131E22} $HOSTNAME %K{#131E22}%F{#78B892} %~ %f%k%b "
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
 ## PS1="[%{${fg_bold[magenta]}%}$USER%{${fg_bold[cyan]}%}@${fg[green]}$HOST %{${fg[red]}%}%3~%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} %{${reset_color}%}] "
 
