@@ -175,10 +175,10 @@ export MANPAGER='nvim +Man!'
 
 EDITOR=nvim
 
-alias ls='nerd-ls -i'
-alias ll='nerd-ls -i -l'
-alias l='nerd-ls -i -l'
-alias la='nerd-ls -i -la'
+alias ls='exa -h --git --icons'
+alias ll='exa -h --git --icons -l'
+alias l='exa -h --git --icons -l'
+alias la='exa -h --git --icons -la'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias b64='base64'

@@ -27,7 +27,7 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = 'chadtain',
+  theme = 'rxyhn',
 
   hl_override = {
     Normal = {

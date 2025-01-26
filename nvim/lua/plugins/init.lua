@@ -67,15 +67,22 @@ return {
     },
   },
 
---   {
---     "IogaMaster/neocord",
---     event = "VeryLazy",
---     config = {
---       main_image = "language",
---       show_time = true,
---       workspace_text = function()
---         return "using NvChad"
---       end,
---     },
---   },
+  {
+    "IogaMaster/neocord",
+    event = "VeryLazy",
+    config = {
+      main_image = "language",
+      show_time = true,
+      workspace_text = function()
+        return "using NvChad"
+      end,
+    },
+  },
+
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+  }
 }
