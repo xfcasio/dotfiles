@@ -179,6 +179,8 @@ alias ls='exa -h --git --icons'
 alias ll='exa -h --git --icons -l'
 alias l='exa -h --git --icons -l'
 alias la='exa -h --git --icons -la'
+alias lt='exa -h --tree --git --icons -l'
+alias lta='exa -h --tree --git --icons -la'
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias b64='base64'
@@ -197,10 +199,10 @@ UID_HEX="%F{#F26E74}"
 
 ## PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
-PS1="%K{#131E22} %B%K{#78B892}%F{#131E22} $HOSTNAME %K{#131E22}%F{#78B892} %~ %f%k%b "
+## PS1="%K{#131E22} %B%K{#78B892}%F{#131E22} $HOSTNAME %K{#131E22}%F{#78B892} %~ %f%k%b "
 ## PS1="%B%K{#789978}%F{#12171d} toji %K{#2f343f}%F{#789978} %~ %f%k%b "
 ## PS1="[%{${fg_bold[magenta]}%}$USER%{${fg_bold[cyan]}%}@${fg[green]}$HOST %{${fg[red]}%}%3~%(0?..%{ ${fg[red]}%}%?)%{${fg[blue]}%} %{${reset_color}%}] "
 
-## PS1="$BRACK_HEX""[$USER_HEX$USERNAME$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
+PS1="$BRACK_HEX""[$USER_HEX$USERNAME$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$UID_HEX%(!.#.$)%f%k%b "
 
 export PATH="$HOME/.cargo/bin/:$HOME/.local/bin/:$PATH"
