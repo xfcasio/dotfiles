@@ -73,5 +73,5 @@ local opts = { noremap = true, silent = true }
 -- map('n', 'd', 'l', opts)  -- d to move right
 
 -- Move selected chunk up/down with alt
-map("v", "J", ":m '>+1<CR>gv=gv", opts)
-map("v", "K", ":m '<-2<CR>gv=gv", opts)
+map("v", "<S-down>", ":m '>+1<CR>gv=gv", opts)
+map("v", "<S-up>", ":m '<-2<CR>gv=gv", opts)
