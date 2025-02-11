@@ -60,13 +60,12 @@ return {
   --
   {
     "nvim-treesitter/nvim-treesitter",
-    oopts = {
-      ensure_installed = {
-        "lua", "rust"
-      },
+    opts = {
+      ensure_installed = { "lua", "rust" },
+      highlight = { enable = true },
     },
   },
-
+  
   {
     "IogaMaster/neocord",
     event = "VeryLazy",
