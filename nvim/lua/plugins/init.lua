@@ -65,6 +65,11 @@ return {
       highlight = { enable = true },
     },
   },
+
+  {
+    "chaoren/vim-wordmotion",
+    lazy = false,
+  },
   
   {
     "IogaMaster/neocord",

@@ -208,10 +208,10 @@ HOST_HEX="%F{#C488EC}"
 CWD_HEX="%F{#6791C9}"
 UID_HEX="%F{#F26E74}"
 
-zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' unstagedstr ' +%%'
 zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:git:*' formats "$BRACK_HEX($USER_HEX%b$AT_HEX%u$USER_HEX%c$BRACK_HEX)"
-zstyle ':vcs_info:git:*' actionformats "$BRACK_HEX($USER_HEX%b$BRACK_HEX|$CWD_HEX%a$AT_HEX%u$USER_HEX%c$BRACK_HEX)"
+zstyle ':vcs_info:git:*' formats "$BRACK_HEX($USER_HEX%b$HOST_HEX%u$USER_HEX%c$BRACK_HEX)"
+zstyle ':vcs_info:git:*' actionformats "$BRACK_HEX($USER_HEX%b$BRACK_HEX|$CWD_HEX%a$HOST_HEX%u$USER_HEX%c$BRACK_HEX)"
 
 ## PS1='%B%F{034}%n@%m%f%b:%B%F{#00bbbb}%~ %#%f%b '
 ## PS1="%B%K{#a175eb}%F{#12171d} toji %K{#2f343f}%F{#a175eb} ▼ %~ %f%k%b "
