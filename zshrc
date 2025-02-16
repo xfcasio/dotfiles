@@ -195,6 +195,7 @@ alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias b64='base64'
 alias q=exit
+alias sudo=doas
 alias zig-std='cd /usr/lib/zig/std && nvim && cd ~'
 alias gac='git add . && git commit -m'
 alias iamb='EDITOR=nvim iamb'
