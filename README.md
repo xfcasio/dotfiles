@@ -12,7 +12,7 @@
     <img src="https://i.imgur.com/Qkda2RG.png" />
 </p>
 
-## Older rices available in git history:
+## Older themes available in git history:
 
 <p align="center">
     <img src="https://i.imgur.com/4H4nh90.png" />
