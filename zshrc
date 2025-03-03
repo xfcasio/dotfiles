@@ -200,6 +200,7 @@ alias zig-std='cd /usr/lib/zig/std && nvim && cd ~'
 alias gac='git add . && git commit -m'
 alias iamb='EDITOR=nvim iamb'
 alias cb='cargo build'
+alias cr='cargo run'
 
 
 BRACK_HEX="%F{#53595f}"
