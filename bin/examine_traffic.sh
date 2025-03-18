@@ -9,9 +9,9 @@ for ip in $(cat $TEMP | sort -rn | uniq); do
   [ $? == 0 ] && continue
 
   freq=$(cat $TEMP | sort -rn | uniq -c | grep $ip | awk '{ print $1 }')
-  printf '%7d %20s : [%s] [%s]\n' $freq $ip \
-    "$(whois $ip | grep 'Organization' || echo 'No Registered Organization')" \
-    "$(whois $ip | grep 'City' || echo 'No Registered City')"
+  printf '%7d %20s : [%-50s] [%-30s]\n' $freq $ip \
+    "$(whois $ip | grep 'Organization' || echo 'Organization:   No Registered Organization')" \
+    "$(whois $ip | grep 'City' || echo 'City:      No Registered City ')"
 done | sort -rn
 
 rm $TEMP 
