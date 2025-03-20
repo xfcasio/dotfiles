@@ -46,7 +46,8 @@ print_events = false
 render_timer = false
 
 [font]
-size = 8.3
+size = 6.5
+#size = 8.3
 
 [font.bold]
 family = "fxd"

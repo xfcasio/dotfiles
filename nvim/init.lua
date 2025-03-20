@@ -75,3 +75,9 @@ local opts = { noremap = true, silent = true }
 -- Move selected chunk up/down with alt
 map("v", "<S-down>", ":m '>+1<CR>gv=gv", opts)
 map("v", "<S-up>", ":m '<-2<CR>gv=gv", opts)
+
+-- Neovide
+vim.g.neovide_padding_top = 10
+vim.g.neovide_padding_bottom = 10
+vim.g.neovide_padding_right = 10
+vim.g.neovide_padding_left = 10
