@@ -79,15 +79,14 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f'  # Use fd (faster than find)
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
-export FZF_DEFAULT_OPTS="
+export FZF_CTRL_T_COMMAND="exa --icons"
+export FZF_CTRL_T_OPTS="--accept-nth=2"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border=rounded
   --color=bg:#00070B,bg+:#000f12,fg:#A9A9A9,fg+:#A9A9A9
   --color=hl:#F26E74,hl+:#F26E74
   --color=info:#79AAEB,prompt:#E9967E,pointer:#C488EC
   --color=marker:#78B892,spinner:#78B892
-  --color=border:#A9A9A9"
+  --color=border:#E89982"
 
 
 # User configuration
