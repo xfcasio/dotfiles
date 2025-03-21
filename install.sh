@@ -27,14 +27,15 @@ $DEBUG \
   ############################################################# #
   
   # Comment out what you need not be installed:
-  dots-install::hyprland                # yes
-  dots-install::wallpaper $HYPR_WALL    # installed to hyprland's default wall0.png (/usr/share/hypr)
+  dots-install::hyprland                # wm
+  dots-install::wallpaper $HYPR_WALL    # installed to hyprland's default wall0.png (installed to /usr/share/hypr)
   dots-install::fabric                  # isntall my fabric configuration for my bar and widgets
   dots-install::shell                   # install my zsh configuration to ~/.zshrc
   dots-install::neovim                  # install my neovim configuration
   dots-install::applications            # install configs for rofi, alacritty, kitty, vencord
   dots-install::neofetch                # install neofetch config
-  dots-install::matrix-iamb             # my iamb configuration
-  dots-install::fonts                   # fonts I use for software
+  dots-install::matrix-iamb             # my [[ personal ]] iamb configuration (edit it)
+  dots-install::fonts                   # fonts I use for common software
+  dots-install::fzf                     # install fzf integration for zsh (installed to ~/.fzf.zsh)
   dots-install::bins                    # some utility scripts I often use (installed to /usr/local/bin)
 } 2>$REDIRECT_TARGET

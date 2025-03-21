@@ -63,3 +63,42 @@ dots-install::bins() {
   echo "* installing bin/* to /usr/local/bin/"
   $SUDO find bin -type f -exec ln -fs "$HERE/"{} "/usr/local/bin" \;
 }
+
+dots-install::fzf() {
+  if ! command -v zsh &>/dev/null; then
+    echo "[!] zsh isn't found, so can't set up fzf for it... skipping this module."
+    return
+  fi
+
+  echo '* checking whether fzf is installed'
+
+  if command -v fzf &>/dev/null; then
+    [[ -f ~/.fzf.zsh ]] && return
+
+    echo "fzf is installed but no ~/.fzf.zsh is found!"
+
+    while true; do
+      read -p "[?] Should I set it up automatically? (y/n): " answer
+      case "$answer" in
+        [Yy])
+          echo "Generating ~/.fzf.zsh ..."
+          if fzf --zsh > ~/.fzf.zsh; then
+            echo '[+] Successfully set up ~/.fzf.zsh'
+          else
+            echo '[!] Failed to generate ~/.fzf.zsh'
+          fi
+          break
+          ;;
+        [Nn])
+          echo "Skipping..."
+          break
+          ;;
+        *)
+          echo "Invalid option. Please pick either 'y' or 'n'."
+          ;;
+      esac
+    done
+  else
+    echo ">>> fzf is not installed, fzf+zsh shell autocompletion will be missing."
+  fi
+}
