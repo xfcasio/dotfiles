@@ -82,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 export FZF_CTRL_T_COMMAND="exa --icons"
 export FZF_CTRL_T_OPTS="--accept-nth=2"
 export FZF_CTRL_R_OPTS="--with-nth=2,-1"
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border=rounded
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border=rounded --exact
   --color=bg:#00070B,bg+:#000f12,fg:#A9A9A9,fg+:#A9A9A9
   --color=hl:#F26E74,hl+:#F26E74
   --color=info:#79AAEB,prompt:#E9967E,pointer:#C488EC
