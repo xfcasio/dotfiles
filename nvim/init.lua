@@ -76,6 +76,8 @@ local opts = { noremap = true, silent = true }
 map("v", "<S-down>", ":m '>+1<CR>gv=gv", opts)
 map("v", "<S-up>", ":m '<-2<CR>gv=gv", opts)
 
+map("n", "<C-c>", "norm", opts)
+
 -- Neovide
 vim.g.neovide_padding_top = 10
 vim.g.neovide_padding_bottom = 10

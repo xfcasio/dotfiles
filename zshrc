@@ -64,12 +64,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   zsh-shift-select
@@ -81,8 +75,9 @@ source $ZSH/oh-my-zsh.sh
 
 export FZF_CTRL_T_COMMAND="exa --icons"
 export FZF_CTRL_T_OPTS="--accept-nth=2"
-export FZF_CTRL_R_OPTS="--with-nth=2,-1"
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border=rounded --exact
+export FZF_CTRL_R_OPTS="--with-nth=2,.."
+export FZF_DEFAULT_OPTS="--height 40% --history-size=10000000000
+  --layout=reverse --border=rounded --exact --cycle --wrap --history=.zsh_history
   --color=bg:#00070B,bg+:#000f12,fg:#A9A9A9,fg+:#A9A9A9
   --color=hl:#F26E74,hl+:#F26E74
   --color=info:#79AAEB,prompt:#E9967E,pointer:#C488EC
