@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 export FZF_CTRL_T_COMMAND="exa --icons"
 export FZF_CTRL_T_OPTS="--accept-nth=2"
-export FZF_CTRL_R_OPTS="--with-nth=2,.."
+export FZF_CTRL_R_OPTS="--with-nth=2,-1"
 export FZF_DEFAULT_OPTS="--height 40% --history-size=10000000000
   --layout=reverse --border=rounded --exact --cycle --wrap --history=.zsh_history
   --color=bg:#00070B,bg+:#000f12,fg:#A9A9A9,fg+:#A9A9A9
