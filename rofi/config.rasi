@@ -105,7 +105,7 @@ inputbar {
     background-color:            transparent;
     text-color:                  transparent;
     /*children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];*/
-    background-image:            url("~/dotfiles/Wallpapers/snowflake.low_res.png", width);
+    background-image:            url("~/dotfiles/Wallpapers/rofi-banner.low_res.png", width);
     orientation: vertical;
 }
 

@@ -18,7 +18,7 @@ yellow = "0xf0c674"
 
 
 [colors.cursor]
-cursor = "0x78B892"
+cursor = "#9C9CA3"
 text = "0x101010"
 
 [colors.normal]
@@ -37,7 +37,7 @@ foreground = "0xA9A9A9"
 
 [cursor]
 style = "Block"
-unfocused_hollow = true
+unfocused_hollow = false
 
 [debug]
 log_level = "OFF"

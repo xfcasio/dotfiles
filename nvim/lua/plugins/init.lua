@@ -70,6 +70,11 @@ return {
     "chaoren/vim-wordmotion",
     lazy = false,
   },
+
+  {
+    "folke/which-key.nvim",
+    enabled = false
+  },
   
   {
     "IogaMaster/neocord",
