@@ -194,12 +194,15 @@ export MANPAGER='nvim +Man!'
 
 EDITOR=nvim
 
-alias ls='exa -h --git --icons'
-alias ll='exa -h --git --icons -l'
-alias l='exa -h --git --icons -l'
-alias la='exa -h --git --icons -la'
-alias lt='exa -h --tree --git --icons -l'
-alias lta='exa -h --tree --git --icons -la'
+if command -v exa > /dev/null; then
+  alias ls='exa -h --git --icons'
+  alias ll='exa -h --git --icons -l'
+  alias l='exa -h --git --icons -l'
+  alias la='exa -h --git --icons -la'
+  alias lt='exa -h --tree --git --icons -l'
+  alias lta='exa -h --tree --git --icons -la'
+fi
+
 alias grep='grep --color=always'
 alias objdump='objdump --disassembler-color=on --visualize-jumps=extended-color'
 alias b64='base64'

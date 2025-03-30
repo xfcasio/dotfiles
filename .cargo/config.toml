@@ -1,0 +1,3 @@
+[build]
+jobs = 2
+target-dir = "/home/toji/.target"
