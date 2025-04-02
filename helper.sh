@@ -23,9 +23,16 @@ dots-install::neovim() {
   ln -fs "$HERE/nvim" "/home/$USER/.config/"
 }
 
-dots-install::shell() {
+dots-install::zsh() {
   echo "* creating zshrc symbolic link"
   ln -fs "$HERE/zshrc" "/home/$USER/.zshrc"
+}
+
+dots-install::nushell() {
+  echo "* creating nushell symbolic link"
+  mkdir -p "/home/$USER/.config/nushell"
+  ln -fs "$HERE/nushell/env.nu" "/home/$USER/.config/nushell/env.nu"
+  ln -fs "$HERE/nushell/config.nu" "/home/$USER/.config/nushell/config.nu"
 }
 
 dots-install::applications() {

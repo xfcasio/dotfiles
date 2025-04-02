@@ -30,7 +30,8 @@ $DEBUG \
   dots-install::hyprland                # wm
   dots-install::wallpaper $HYPR_WALL    # installed to hyprland's default wall0.png (installed to /usr/share/hypr)
   dots-install::fabric                  # isntall my fabric configuration for my bar and widgets
-  dots-install::shell                   # install my zsh configuration to ~/.zshrc
+# dots-install::zsh                     # install my zsh configuration to ~/.zshrc
+  dots-install::nushell                 # install my nushell configuration to ~/.config/nushell/
   dots-install::neovim                  # install my neovim configuration
   dots-install::applications            # install configs for rofi, alacritty, kitty, vencord
   dots-install::neofetch                # install neofetch config
