@@ -33,6 +33,7 @@ dots-install::nushell() {
   mkdir -p "/home/$USER/.config/nushell"
   ln -fs "$HERE/nushell/env.nu" "/home/$USER/.config/nushell/env.nu"
   ln -fs "$HERE/nushell/config.nu" "/home/$USER/.config/nushell/config.nu"
+  ln -fs "$HERE/nushell/git-status.nu" "/home/$USER/.config/nushell/git-status.nu"
 }
 
 dots-install::applications() {

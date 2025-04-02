@@ -1,3 +1,5 @@
+use git-status.nu
+
 # Environment Variables
 $env.config.show_banner = false
 $env.PATH = ($env.PATH | prepend [
@@ -45,7 +47,7 @@ $env.PROMPT_COMMAND = {
     let cwd = $env.PWD | str replace $env.HOME "~"
     let uid = if (id -u) == 0 { "#" } else { "$" }
 
-    $"($brack_hex)[($user_hex)($username)($at_hex)@($host_hex)($hostname) ($cwd_hex)($cwd)($brack_hex)]($uid_hex)($uid)($reset)"
+    $"($brack_hex)[($user_hex)($username)($at_hex)@($host_hex)($hostname) ($cwd_hex)($cwd)($brack_hex)](git-status)($uid_hex)($uid)($reset)"
 }
 
 
