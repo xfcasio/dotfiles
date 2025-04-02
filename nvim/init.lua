@@ -11,6 +11,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.o.shell = "/home/toji/.cargo/bin/nu"
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -60,6 +62,14 @@ require("nvim-tree").setup({
     auto_open = true,
   },
 })
+
+local lspconfig = require "lspconfig"
+
+-- Enable clangd for C/C++
+lspconfig.clangd.setup{}
+
+-- Enable rust-analyzer for Rust
+--- lspconfig.rust_analyzer.setup{}
 
 vim.cmd("set numberwidth=4")
 vim.cmd("set relativenumber")

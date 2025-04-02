@@ -381,7 +381,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [terminal.shell]
-program = "/usr/bin/zsh"
+program = "/home/toji/.cargo/bin/nu"
 
 [window]
 decorations = "buttonless"

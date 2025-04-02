@@ -39,25 +39,30 @@ return {
     end,
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require("nvchad.configs.lspconfig").defaults()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
-  --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
-  --
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup {
+        ensure_installed = { "clangd", "rust_analyzer" }
+      }
+    end
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server", "stylua",
+        "html-lsp", "css-lsp" , "prettier",
+        "clangd", "rust-analyzer"
+      },
+    },
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -75,18 +80,18 @@ return {
     "folke/which-key.nvim",
     enabled = false
   },
-  
-  {
-    "IogaMaster/neocord",
-    event = "VeryLazy",
-    config = {
-      main_image = "language",
-      show_time = true,
-      workspace_text = function()
-        return "using NvChad"
-      end,
-    },
-  },
+
+  -- {
+  --   "IogaMaster/neocord",
+  --   event = "VeryLazy",
+  --   config = {
+  --     main_image = "language",
+  --     show_time = true,
+  --     workspace_text = function()
+  --       return "using NvChad"
+  --     end,
+  --   },
+  -- },
 
   {
     "nvzone/typr",

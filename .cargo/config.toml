@@ -1,3 +1,4 @@
 [build]
 jobs = 2
 target-dir = "/home/toji/.target"
+rustflags = ["-C", "target-cpu=native"]
