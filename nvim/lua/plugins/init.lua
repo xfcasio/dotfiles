@@ -43,7 +43,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = { "clangd", "rust_analyzer" }
+        ensure_installed = { "ccls", "rust_analyzer" }
       }
     end
   },
@@ -58,7 +58,7 @@ return {
       ensure_installed = {
         "lua-language-server", "stylua",
         "html-lsp", "css-lsp" , "prettier",
-        "clangd", "rust-analyzer"
+        "ccls", "rust-analyzer"
       },
     },
   },

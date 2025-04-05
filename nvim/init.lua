@@ -63,13 +63,13 @@ require("nvim-tree").setup({
   },
 })
 
-local lspconfig = require "lspconfig"
+-- local lspconfig = require "lspconfig"
 
--- Enable clangd for C/C++
-lspconfig.clangd.setup{}
+-- Enable ccls for C/C++
+-- lspconfig.ccls.setup{}
 
 -- Enable rust-analyzer for Rust
---- lspconfig.rust_analyzer.setup{}
+-- lspconfig.rust_analyzer.setup{}
 
 vim.cmd("set numberwidth=4")
 vim.cmd("set relativenumber")
