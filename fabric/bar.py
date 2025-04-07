@@ -1,8 +1,8 @@
 #!/usr/bin/python3.12
-import os, psutil
-from subprocess import check_output
+import os, psutil, socket
 from getpass import getuser
 from os import getcwd
+import pulsectl
 from fabric import Application
 from fabric.widgets.box import Box
 from fabric.widgets.shapes import Corner
@@ -85,12 +85,44 @@ class StatusBar(Window):
             visible=False,
             all_visible=False,
         )
+        
+        self.pulse = pulsectl.Pulse('volume-manager')
+        self.default_sink = self.pulse.sink_list()[0]
+
         self.workspaces = Workspaces(
             name="workspaces",
             spacing=4,
             buttons_factory=lambda ws_id: WorkspaceButton(id=ws_id, label=None, orientation="h"),
             orientation = 'h'
         )
+
+        self.volume = Box(
+            name="volume-widget",
+            spacing=4,
+            orientation='h',
+            children=[Box(
+                    style=f"""
+                        background-image: url("file://{getcwd()}/svg/speaker.svg");
+                        background-size: 10px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        min-width: 10px;
+                        margin: -15px 0px -15px 0px;
+                    """
+                ), Box(
+                    style="background-color: #333B3F",
+                    children=[Box(
+                        style=f"""
+                            background-image: linear-gradient(45deg, #BC83E3, #367AED);
+                            padding: 1px 0px 1px {self.default_sink.volume.value_flat * 50/2}px;
+                            margin: 0px {50 * (1 - self.default_sink.volume.value_flat / 2)}px 0px 0px;
+                        """
+                    )]
+            )]
+        )
+        
+        self.connect('scroll-event', lambda _, event: self.increase_volume(event))
+
         self.date_time = DateTime(name="date-time", h_align='center', formatters = ("%I:%M"))
         self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=16, orientation="h")
 
@@ -109,11 +141,19 @@ class StatusBar(Window):
         )
 
         self.internet_connection = Box(
-            name="internet-container",
+            style=f"""
+                background-image: url("file://{getcwd()}/svg/disconnected.svg");
+                background-size: 22px;
+                background-position: center;
+                padding: 10px 10px 10px 10px;
+                margin: -2px 1px -2px 1px;
+                min-width: 8px;
+                border-radius: 5px;
+            """,
             spacing=4,
         )
-        
-        self.status_container.add(VolumeWidget()) if AUDIO_WIDGET is True else None
+
+        #self.status_container.add(VolumeWidget()) if AUDIO_WIDGET is True else None
 
         self.children = CenterBox(
             orientation="h",
@@ -125,18 +165,17 @@ class StatusBar(Window):
                 children=[
                     Box(
                         name="pfp-container",
-                        children=[
-                    Box(
-                        name="profile-pic",
-                        style=f"""
-                              background-image: url(\"file:///home/{getuser()}/.face.jpg\");
-                              padding: 10px 10px 10px 12px;
-                              margin: 0px 0px 0px 1px;
-                              border-radius: 7px;
+                        children=[Box(
+                            name="profile-pic",
+                            style=f"""
+                                background-image: url(\"file:///home/{getuser()}/.face.jpg\");
+                                padding: 10px 10px 10px 12px;
+                                margin: 0px 0px 0px 1px;
+                                border-radius: 7px;
                             """,
-                    )
-                        ]
-                    )
+                        )]
+                    ),
+                    self.volume
                 ]
             ),
 
@@ -153,8 +192,7 @@ class StatusBar(Window):
                 orientation="h",
                 children=[
                     self.system_tray,
-                    ### self.internet_connection,
-                    ### self.date_time,
+                    self.internet_connection,
                     # Corner(orientation='bottom-right', style='background: #000000;'),
                     Box(
                         name='radial-indicators',
@@ -167,9 +205,7 @@ class StatusBar(Window):
             ),
         )
 
-        self.connect("scroll-event", self.on_scroll)
-
-        #invoke_repeater(1000, self.update_internet_status)
+        invoke_repeater(5000, self.update_internet_status)
         invoke_repeater(1000, self.update_progress_bars)
 
         self.show_all()
@@ -180,14 +216,42 @@ class StatusBar(Window):
         return True
 
     def update_internet_status(self):
-        print("test")
-        ping_result = int(check_output(['ping', '1.0.0.1', '-c1']).decode('utf-8').split('\n')[-3].split(' ')[5][:1])
-        if ping_result == 0: self.internet_connection.style = f"background-image: url(\"file://{getcwd()}/svg/connected.svg\")"
+        widget_style = lambda is_connected: f"""
+                background-image: url("file://{getcwd()}/svg/{'connected' if is_connected else 'disconnected'}.svg");
+                background-size: 22px;
+                background-position: center;
+                padding: 10px 10px 10px 10px;
+                margin: -2px 1px -2px 1px;
+                min-width: 8px;
+                border-radius: 5px;
+            """
+
+        self.internet_connection.set_style(widget_style(is_connected_to_internet()))
         return True
     
-    def on_scroll(self, _, event):
-        os.system('hyprctl dispatch workspace 1')
-        os.system('playerctl pause')
+    def increase_volume(self, event):
+        current_volume = self.default_sink.volume.value_flat
+        scroll_direction = event.direction.as_integer_ratio()[0];
+        
+        if scroll_direction not in [1, 0]: return
+
+        if scroll_direction == 1: # scroll down
+            if current_volume - 0.2 < 0: return
+            self.pulse.volume_set_all_chans(self.default_sink, current_volume - 0.2)
+        else: # scroll up
+            if current_volume + 0.2 > 2: return
+            self.pulse.volume_set_all_chans(self.default_sink, current_volume + 0.2)
+        
+        volume = round(self.default_sink.volume.value_flat * 50 / 2)
+        
+        volume = 5 if volume < 5 else volume    ## this part is
+        volume = 50 if volume > 45 else volume  ## just for aesthetics
+
+        self.volume.children[1].children[0].set_style(f"""
+            background-image: linear-gradient(45deg, #BC83E3, #367AED);
+            padding: 1px 0px 1px {volume}px;
+            margin: 0px {50 - volume}px 0px 0px;
+        """)
 
 class MyCorner(Box):
     def __init__(self, corner):
@@ -249,6 +313,18 @@ class Corners(Window):
 
         self.show_all()
 
+def is_connected_to_internet(host="1.0.0.1", port=53, timeout=3):
+    try:
+        socket.setdefaulttimeout(timeout)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+        return True
+    except socket.error:
+        return False
+
+
+def to_home(_, _event):
+    os.system('hyprctl dispatch workspace 1')
+    os.system('playerctl pause')
 
 if __name__ == "__main__":
     bar = StatusBar()

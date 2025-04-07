@@ -86,6 +86,12 @@ button {
     background-color: var(--ws-empty);
 }
 
+#volume-widget {
+    padding: 6px 10px 6px 6px;
+    margin: 2px;
+    min-width: 50px;
+    background-color: var(--module-bg);
+}
 
 #date-time,
 #hyprland-language,
@@ -121,21 +127,13 @@ menu>menuitem>label,
 }
 
 #date-time {
-  font-family: 'Spleen';
-  font-size: 20px;
+  font-family: 'Cartograph CF Thin';
+  font-size: 30px;
   background-color: #171C21;
   color: #78B892;
-  margin: 0px;
+  margin: -2px 0px -2px 0px;
   padding: 2px 4px 2px 4px;
-  /*border: 1px solid rgba(16, 16, 16, 1);*/
-  border-radius: 4px;
-}
-
-#internet-container {
-    background-image: url("file:///home/toji/.face.jpg");
-    padding: 10px 10px 13px 10px;
-    margin: 4px 1px 1px 1px;
-    border-radius: 10px;
+  border-radius: 5px;
 }
 
 /* system tray */
