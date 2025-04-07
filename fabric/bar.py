@@ -102,7 +102,7 @@ class StatusBar(Window):
             orientation='h',
             children=[Box(
                     style=f"""
-                        background-image: url("file://{getcwd()}/svg/speaker.svg");
+                        background-image: url("file:///home/{getuser()}/.config/fabric/svg/speaker.svg");
                         background-size: 10px;
                         background-position: center;
                         background-repeat: no-repeat;
@@ -142,7 +142,7 @@ class StatusBar(Window):
 
         self.internet_connection = Box(
             style=f"""
-                background-image: url("file://{getcwd()}/svg/disconnected.svg");
+                background-image: url("file:///home/{getuser()}/.config/fabric/svg/disconnected.svg");
                 background-size: 22px;
                 background-position: center;
                 padding: 10px 10px 10px 10px;
@@ -217,7 +217,7 @@ class StatusBar(Window):
 
     def update_internet_status(self):
         widget_style = lambda is_connected: f"""
-                background-image: url("file://{getcwd()}/svg/{'connected' if is_connected else 'disconnected'}.svg");
+                background-image: url("file:///home/{getuser()}/.config/fabric/svg/{'connected' if is_connected else 'disconnected'}.svg");
                 background-size: 22px;
                 background-position: center;
                 padding: 10px 10px 10px 10px;
