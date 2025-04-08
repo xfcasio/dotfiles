@@ -85,10 +85,10 @@ class StatusBar(Window):
             visible=False,
             all_visible=False,
         )
-        
-        self.pulse = pulsectl.Pulse('volume-manager')
-        self.default_sink = self.pulse.sink_list()[0]
 
+        self.pulse = pulsectl.Pulse('volume-manager')
+        current_volume = self.pulse.sink_list()[0].volume.value_flat
+        
         self.workspaces = Workspaces(
             name="workspaces",
             spacing=4,
@@ -114,8 +114,8 @@ class StatusBar(Window):
                     children=[Box(
                         style=f"""
                             background-image: linear-gradient(45deg, #BC83E3, #367AED);
-                            padding: 1px 0px 1px {self.default_sink.volume.value_flat * 50/2}px;
-                            margin: 0px {50 * (1 - self.default_sink.volume.value_flat / 2)}px 0px 0px;
+                            padding: 1px 0px 1px {current_volume * 50/2}px;
+                            margin: 0px {50 * (1 - current_volume / 2)}px 0px 0px;
                         """
                     )]
             )]
@@ -230,19 +230,21 @@ class StatusBar(Window):
         return True
     
     def increase_volume(self, event):
-        current_volume = self.default_sink.volume.value_flat
+        default_sink = self.pulse.sink_list()[0]
+
+        current_volume = default_sink.volume.value_flat
         scroll_direction = event.direction.as_integer_ratio()[0];
         
         if scroll_direction not in [1, 0]: return
 
         if scroll_direction == 1: # scroll down
             if current_volume - 0.2 < 0: return
-            self.pulse.volume_set_all_chans(self.default_sink, current_volume - 0.2)
+            self.pulse.volume_set_all_chans(default_sink, current_volume - 0.2)
         else: # scroll up
             if current_volume + 0.2 > 2: return
-            self.pulse.volume_set_all_chans(self.default_sink, current_volume + 0.2)
+            self.pulse.volume_set_all_chans(default_sink, current_volume + 0.2)
         
-        volume = round(self.default_sink.volume.value_flat * 50 / 2)
+        volume = round(default_sink.volume.value_flat * 50 / 2)
         
         volume = 5 if volume < 5 else volume    ## this part is
         volume = 50 if volume > 45 else volume  ## just for aesthetics

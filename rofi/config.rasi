@@ -32,21 +32,21 @@ configuration {
     normal-background:           var(background);
     normal-foreground:           var(foreground);
     urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
+    urgent-foreground:           var(foreground);
     active-background:           var(active);
-    active-foreground:           var(background);
+    active-foreground:           var(foreground);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
+    selected-normal-foreground:  var(foreground);
     selected-urgent-background:  var(active);
-    selected-urgent-foreground:  var(background);
+    selected-urgent-foreground:  var(foreground);
     selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
+    selected-active-foreground:  var(foreground);
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
     alternate-urgent-background: var(urgent);
-    alternate-urgent-foreground: var(background);
+    alternate-urgent-foreground: var(foreground);
     alternate-active-background: var(active);
-    alternate-active-foreground: var(background);
+    alternate-active-foreground: var(foreground);
 }
 
 /*****----- Main Window -----*****/
