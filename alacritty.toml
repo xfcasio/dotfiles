@@ -46,11 +46,11 @@ print_events = false
 render_timer = false
 
 [font]
-size = 6.5
+size = 12
 #size = 8.3
 
 [font.bold]
-family = "fxd"
+family = "Spleen"
 #family = "Cartograph CF"
 style = "Heavy"
 
@@ -59,12 +59,12 @@ x = 0
 y = 0
 
 [font.italic]
-family = "fxd"
+family = "Spleen"
 #family = "Cartograph CF"
 style = "Heavy Italic"
 
 [font.normal]
-family = "fxd"
+family = "Spleen"
 #family = "Cartograph CF"
 style = "Bold"
 
