@@ -124,7 +124,7 @@ class StatusBar(Window):
         self.connect('scroll-event', lambda _, event: self.increase_volume(event))
 
         self.date_time = DateTime(name="date-time", h_align='center', formatters = ("%I:%M"))
-        self.system_tray = SystemTray(name="system-tray", spacing=4, icon_size=16, orientation="h")
+        self.system_tray = SystemTray(name="system-tray", spacing=7, icon_size=16, orientation="h")
 
         self.ram_progress_bar = CircularProgressBar(
             name="ram-progress-bar", radial=True, size=15, line_width=4, spacing=1, padding=10
