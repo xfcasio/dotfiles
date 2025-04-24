@@ -1,0 +1,141 @@
+/**
+ * @name midnight (Modified Darker Version)
+ * @description A dark, rounded discord theme
+ * @author refact0r (Modified by xfcisco)
+ * @version 2.0.1
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font, change to '' for default discord font */
+    --font: 'Ac437 PhoenixVGA 9x16';
+
+    /* sizes */
+    --gap: 5px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+
+    /* animation/transition options */
+    --animations: on; /* turn off to disable all midnight animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+
+    /* top bar options */
+    --move-top-bar-buttons: off; /* turn on to move inbox button to the server list (recommend setting top bar height to 24px) */
+    --custom-app-top-bar-height: 32px; /* height of the titlebar/top bar (default is 36px)*/
+
+    /* window controls */
+    --custom-window-controls: on; /* turn off to use discord default window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button icon options */
+    --dms-icon: on; /* set to default to use discord icon, on to use custom icon, off to disable completely */
+    --dms-icon-svg-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size) */
+    --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+
+    /* dms button background options */
+    --dms-background: off; /* off to disable, image to use a background image, color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background) */
+
+    /* background image options */
+    --background-image: off; /* turn on to use a background image */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    /* other options */
+    --small-user-panel: off;
+}
+
+/* color options */
+:root {
+    --colors: on;
+
+    /* text colors */
+    --text-0: hsl(210, 10%, 90%);
+    --text-1: hsl(210, 10%, 85%);
+    --text-2: hsl(210, 10%, 65%);
+    --text-3: hsl(210, 10%, 55%);
+    --text-4: hsl(210, 10%, 40%);
+    --text-5: hsl(210, 10%, 25%);
+
+    /* background and dark colors */
+    --bg-1: #0D1316;
+    --bg-2: #0A1013;
+    --bg-3: #050C0F;
+    --bg-4: #000A0E;
+    --hover: hsla(210, 10%, 80%, 0.06);
+    --active: hsla(210, 10%, 80%, 0.12);
+    --active-2: hsla(210, 10%, 80%, 0.18);
+    --message-hover: hsla(210, 10%, 100%, 0.05);
+
+    /* accent colors */
+    --accent-1: var(--blue-1);
+    --accent-2: var(--blue-2);
+    --accent-3: var(--blue-3);
+    --accent-4: var(--blue-4);
+    --accent-5: var(--blue-5);
+    --accent-new: var(--accent-2);
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 85%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 92%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 85%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 92%) 40%, transparent);
+
+    /* status indicator colors (natural, vibrant) */
+    --online: oklch(65% 0.12 170);
+    --idle: oklch(65% 0.12 90);
+    --dnd: oklch(65% 0.12 25);
+    --streaming: oklch(65% 0.12 310);
+    --offline: var(--text-4);
+
+    /* border colors */
+    --border-light: hsla(210, 10%, 90%, 0.05);
+    --border: hsla(210, 10%, 90%, 0.12);
+    --button-border: hsla(0, 0%, 100%, 0.08);
+
+    /* base colors */
+    --red-1: oklch(55% 0.09 25);
+    --red-2: oklch(48% 0.09 25);
+    --red-3: oklch(42% 0.09 25);
+    --red-4: oklch(36% 0.09 25);
+    --red-5: oklch(30% 0.09 25);
+
+    --green-1: oklch(55% 0.08 170);
+    --green-2: oklch(48% 0.08 170);
+    --green-3: oklch(42% 0.08 170);
+    --green-4: oklch(36% 0.08 170);
+    --green-5: oklch(30% 0.08 160);
+
+    --blue-1: oklch(55% 0.08 215);
+    --blue-2: oklch(48% 0.08 215);
+    --blue-3: oklch(42% 0.08 215);
+    --blue-4: oklch(36% 0.08 215);
+    --blue-5: oklch(30% 0.08 215);
+
+    --yellow-1: oklch(60% 0.09 90);
+    --yellow-2: oklch(53% 0.09 90);
+    --yellow-3: oklch(47% 0.09 90);
+    --yellow-4: oklch(41% 0.09 90);
+    --yellow-5: oklch(35% 0.09 90);
+
+    --purple-1: oklch(55% 0.08 310);
+    --purple-2: oklch(48% 0.08 310);
+    --purple-3: oklch(42% 0.08 310);
+    --purple-4: oklch(36% 0.08 310);
+    --purple-5: oklch(30% 0.08 310);
+}

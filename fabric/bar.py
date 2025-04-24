@@ -121,7 +121,8 @@ class StatusBar(Window):
             )]
         )
         
-        self.connect('scroll-event', lambda _, event: self.increase_volume(event))
+#        self.connect('scroll-event', lambda _, event: self.increase_volume(event))
+        self.connect('scroll-event', to_home)
 
         self.date_time = DateTime(name="date-time", h_align='center', formatters = ("%I:%M"))
         self.system_tray = SystemTray(name="system-tray", spacing=7, icon_size=16, orientation="h")
