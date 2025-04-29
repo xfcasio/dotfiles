@@ -46,11 +46,10 @@ print_events = false
 render_timer = false
 
 [font]
-size = 14
-#size = 8.3
+size = 8.3
 
 [font.bold]
-family = "Ac437 ToshibaSat 8x14"
+family = "fxd"
 #family = "Cartograph CF"
 style = "Heavy"
 
@@ -59,12 +58,12 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Ac437 ToshibaSat 8x14"
+family = "fxd"
 #family = "Cartograph CF"
 style = "Heavy Italic"
 
 [font.normal]
-family = "Ac437 ToshibaSat 8x14"
+family = "fxd"
 #family = "Cartograph CF"
 style = "Bold"
 
