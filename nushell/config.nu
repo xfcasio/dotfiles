@@ -6,7 +6,8 @@ $env.PATH = ($env.PATH | prepend [
     $"($env.HOME)/bin",
     $"($env.HOME)/.local/bin",
     "/usr/local/bin",
-    $"($env.HOME)/.cargo/bin"
+    $"($env.HOME)/.cargo/bin",
+    $"($env.HOME)/.nix-profile/bin"
 ])
 
 $env.EDITOR = "nvim"
