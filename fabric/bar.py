@@ -1,4 +1,4 @@
-#!/usr/bin/python3.12
+#!/usr/bin/env python3.12
 import os, psutil, socket
 from getpass import getuser
 from os import getcwd
