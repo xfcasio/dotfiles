@@ -86,6 +86,13 @@ button {
     background-color: var(--ws-empty);
 }
 
+#battery-widget {
+    padding: 6px 10px 6px 6px;
+    margin: 2px;
+    min-width: 25px;
+    background-color: var(--module-bg);
+}
+
 #volume-widget {
     padding: 6px 10px 6px 6px;
     margin: 2px;

@@ -96,6 +96,36 @@ class StatusBar(Window):
             orientation = 'h'
         )
 
+        self.battery = Box(
+            spacing=4,
+            orientation='h',
+            children=[
+                Box(
+                    style="""
+                        background-color: #333B3F;
+                        border-color: #111A1F;
+                        border-width: 4px 4px 4px 6px;
+                        border-style: solid;
+                        padding: 1px;
+                        margin: 2px;
+                    """,
+                    children=Box(style=f"""
+                        background-image: linear-gradient(#6791C9, #6791C9);
+                        padding: 1px 0px 1px 40px;
+                        margin: -1px 0px -1px -2px;
+                        border-radius: 2px;
+                        border-style: solid;
+                        border-color: #333B3F;
+                    """)
+                ),
+                Box(style="""
+                    background-color: #111A1F;
+                    margin: 5px 3px 5px -6px;
+                    border-radius: 0px 2px 2px 0px;
+                """)
+            ]
+        )
+
         self.volume = Box(
             name="volume-widget",
             spacing=4,
@@ -176,7 +206,8 @@ class StatusBar(Window):
                             """,
                         )]
                     ),
-                    self.volume
+                    self.volume,
+                    self.battery
                 ]
             ),
 
@@ -207,13 +238,33 @@ class StatusBar(Window):
         )
 
         invoke_repeater(5000, self.update_internet_status)
-        invoke_repeater(1000, self.update_progress_bars)
+        invoke_repeater(5000, self.update_battery)
+        invoke_repeater(8000, self.update_progress_bars)
 
         self.show_all()
 
     def update_progress_bars(self):
         self.ram_progress_bar.value = psutil.virtual_memory().percent / 100
         self.cpu_progress_bar.value = psutil.cpu_percent() / 100
+        return True
+
+    def update_battery(self):
+        battery_percent = psutil.sensors_battery().percent
+
+        if battery_percent == 100: battery_color = '#6791C9'
+        elif battery_percent >= 30: battery_color = '#78B892' 
+        elif battery_percent >= 15: battery_color = '#ECD28B'
+        else: battery_color = '#DF5B61'
+
+        self.battery.children[0].children[0].set_style(f"""
+            background-image: linear-gradient({battery_color}, {battery_color});
+            padding: 1px 0px 1px {4 * battery_percent / 10}px;
+            margin: -1px {4 * (100 - battery_percent) / 10}px -1px -2px;
+            border-radius: 2px;
+            border-style: solid;
+            border-color: #333B3F;
+        """)
+
         return True
 
     def update_internet_status(self):
