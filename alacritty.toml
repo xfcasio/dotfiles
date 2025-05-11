@@ -49,7 +49,7 @@ render_timer = false
 size = 8.3
 
 [font.bold]
-family = "fxd"
+family = "Terminus"
 #family = "Cartograph CF"
 style = "Heavy"
 
@@ -58,12 +58,12 @@ x = 0
 y = 0
 
 [font.italic]
-family = "fxd"
+family = "Terminus"
 #family = "Cartograph CF"
 style = "Heavy Italic"
 
 [font.normal]
-family = "fxd"
+family = "Terminus"
 #family = "Cartograph CF"
 style = "Bold"
 
@@ -380,7 +380,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [terminal.shell]
-program = "/home/toji/.cargo/bin/nu"
+program = "zsh"
 
 [window]
 decorations = "buttonless"

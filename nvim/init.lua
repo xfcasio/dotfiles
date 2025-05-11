@@ -11,7 +11,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.o.shell = "/home/toji/.cargo/bin/nu"
+vim.o.shell = "zsh"
 
 local lazy_config = require "configs.lazy"
 

@@ -121,11 +121,12 @@ body {
     --green-4: oklch(36% 0.08 170);
     --green-5: oklch(30% 0.08 160);
 
-    --blue-1: oklch(55% 0.08 215);
-    --blue-2: oklch(48% 0.08 215);
-    --blue-3: oklch(42% 0.08 215);
-    --blue-4: oklch(36% 0.08 215);
-    --blue-5: oklch(30% 0.08 215);
+    /* 🟢 MODIFIED "BLUE" COLORS (now green) */
+    --blue-1: #1DA561;
+    --blue-2: #1DA561;
+    --blue-3: #1DA561;
+    --blue-4: #1DA561;
+    --blue-5: #1DA561;
 
     --yellow-1: oklch(60% 0.09 90);
     --yellow-2: oklch(53% 0.09 90);

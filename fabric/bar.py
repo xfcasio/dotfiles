@@ -102,7 +102,7 @@ class StatusBar(Window):
             children=[
                 Box(
                     style="""
-                        background-color: #333B3F;
+                        background-color: #041011;
                         border-color: #111A1F;
                         border-width: 4px 4px 4px 6px;
                         border-style: solid;
@@ -110,8 +110,8 @@ class StatusBar(Window):
                         margin: 2px;
                     """,
                     children=Box(style=f"""
-                        background-image: linear-gradient(#6791C9, #6791C9);
-                        padding: 1px 0px 1px 40px;
+                        background-image: linear-gradient(#78B8a2, #78B8a2);
+                        padding: 1px 0px 1px 30px;
                         margin: -1px 0px -1px -2px;
                         border-radius: 2px;
                         border-style: solid;
@@ -200,6 +200,9 @@ class StatusBar(Window):
                             name="profile-pic",
                             style=f"""
                                 background-image: url(\"file:///home/{getuser()}/.face.jpg\");
+                                background-size: 20px;
+                                background-position: center;
+                                background-repeat: no-repeat;
                                 padding: 10px 10px 10px 12px;
                                 margin: 0px 0px 0px 1px;
                                 border-radius: 7px;
@@ -251,15 +254,15 @@ class StatusBar(Window):
     def update_battery(self):
         battery_percent = psutil.sensors_battery().percent
 
-        if battery_percent == 100: battery_color = '#6791C9'
+        if battery_percent == 100: battery_color = '#78B8a2'
         elif battery_percent >= 30: battery_color = '#78B892' 
         elif battery_percent >= 15: battery_color = '#ECD28B'
         else: battery_color = '#DF5B61'
 
         self.battery.children[0].children[0].set_style(f"""
             background-image: linear-gradient({battery_color}, {battery_color});
-            padding: 1px 0px 1px {4 * battery_percent / 10}px;
-            margin: -1px {4 * (100 - battery_percent) / 10}px -1px -2px;
+            padding: 1px 0px 1px {3 * battery_percent / 10}px;
+            margin: -1px {3 * (100 - battery_percent) / 10}px -1px -2px;
             border-radius: 2px;
             border-style: solid;
             border-color: #333B3F;
