@@ -58,7 +58,7 @@ button {
 }
 
 #workspaces>button {
-    padding: 0px 18px 0px 0px;
+    padding: 0px 12px 0px 0px;
     transition: padding 0.05s steps(8);
     background-color: var(--ws-inactive);
     border-radius: 1px;
