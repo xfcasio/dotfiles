@@ -1,11 +1,13 @@
 #!/bin/env python
-import argparse
+import argparse, os
 
 parser = argparse.ArgumentParser()
 
+parser.add_argument('-r', '--reload', action='store_true', help='whether or not to reload hyprland after modifying the files')
+
 group = parser.add_mutually_exclusive_group()
-group.add_argument('--laptop', action='store_true', help='map all hyprland workspaces to laptop monitor')
-group.add_argument('--hdmi', action='store_true', help='map all hyprland workspaces to hdmi connected monitor')
+group.add_argument('-l', '--laptop', action='store_true', help='map all hyprland workspaces to laptop monitor')
+group.add_argument('-m', '--hdmi', action='store_true', help='map all hyprland workspaces to hdmi connected monitor')
 
 args = parser.parse_args()
 
@@ -49,3 +51,5 @@ elif args.hdmi:
 else:
     print('you must pick either --laptop or --hdmi')
     exit(1)
+
+if args.reload: os.system('hyprctl reload')
