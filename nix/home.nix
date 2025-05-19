@@ -1,14 +1,14 @@
 { config, pkgs, ... }: let 
-  fontsDir = builtins.attrNames (builtins.readDir ./dotfiles/fonts);
+  fontsDir = builtins.attrNames (builtins.readDir ./amadeus/fonts);
   customFonts = builtins.listToAttrs (map (name: {
     name = ".local/share/fonts/${name}";
-    value.source = ./dotfiles/fonts/${name};
+    value.source = ./amadeus/fonts/${name};
   }) fontsDir);
 
-  binsDir = builtins.attrNames (builtins.readDir ./dotfiles/bin);
+  binsDir = builtins.attrNames (builtins.readDir ./amadeus/bin);
   customBins = builtins.listToAttrs (map (name: {
     name = ".local/bin/${name}";
-    value.source = ./dotfiles/bin/${name};
+    value.source = ./amadeus/bin/${name};
   }) binsDir); in
 {
   home.username = "toji";
@@ -17,19 +17,19 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.file = {
-    #".zshrc".source = ./dotfiles/zshrc;
-    ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
-    ".config/fabric".source = ./dotfiles/fabric;
-    ".config/hypr".source = ./dotfiles/hypr;
-    ".config/iamb".source = ./dotfiles/iamb;
-    ".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
-    ".config/neofetch".source = ./dotfiles/neofetch;
-    ".config/nushell".source = ./dotfiles/nushell;
-    ".config/nvim".source = ./dotfiles/nvim;
-    ".config/rofi".source = ./dotfiles/rofi;
-    ".config/Vencord".source = ./dotfiles/Vencord;
+    #".zshrc".source = ./amadeus/zshrc;
+    ".config/alacritty/alacritty.toml".source = ./amadeus/alacritty.toml;
+    ".config/fabric".source = ./amadeus/fabric;
+    ".config/hypr".source = ./amadeus/hypr;
+    ".config/iamb".source = ./amadeus/iamb;
+    ".config/kitty/kitty.conf".source = ./amadeus/kitty.conf;
+    ".config/neofetch".source = ./amadeus/neofetch;
+    ".config/nushell".source = ./amadeus/nushell;
+    ".config/nvim".source = ./amadeus/nvim;
+    ".config/rofi".source = ./amadeus/rofi;
+    ".config/Vencord".source = ./amadeus/Vencord;
 
-    ".cargo".source = ./dotfiles/.cargo;
+    ".cargo".source = ./amadeus/.cargo;
     ".local/bin/e" = {
       executable = true;
       text = ''
@@ -55,7 +55,7 @@
         "z"
       ];
     };
-    initContent = ''source ~/nixos/dotfiles/zshrc'';
+    initContent = ''source ~/nixos/amadeus/zshrc'';
 
     plugins = [{
       name = "zsh-shift-select";

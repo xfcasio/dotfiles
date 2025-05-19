@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    dotfiles = {
+    amadeus = {
       type = "path";
-      path = "/home/toji/nixos/dotfiles";
+      path = "/home/toji/nixos/amadeus";
       flake = false;
     };
 
@@ -41,7 +41,7 @@
         hyprland = prev.hyprland.overrideAttrs (old: {
           postInstall = old.postInstall + ''
             mkdir -p $out/share/hypr
-            cp ./dotfiles/Wallpapers/blue-clouds.png $out/share/hypr/wall0.png
+            cp ./amadeus/Wallpapers/blue-clouds.png $out/share/hypr/wall0.png
           '';
         });
       })

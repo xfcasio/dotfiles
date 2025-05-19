@@ -12,7 +12,7 @@ $DEBUG \
 {
   source helper.sh
   
-  HERE="/home/$USER/dotfiles"
+  HERE="/home/$USER/amadeus"
   
   # I prefer doas
   SUDO=$(which doas 2> /dev/null)

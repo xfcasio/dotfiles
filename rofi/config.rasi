@@ -105,7 +105,7 @@ inputbar {
     background-color:            transparent;
     text-color:                  transparent;
     /*children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];*/
-    background-image:            url("~/dotfiles/Wallpapers/blue-clouds.png", height);
+    background-image:            url("~/amadeus/Wallpapers/blue-clouds.png", height);
     orientation: vertical;
 }
 
