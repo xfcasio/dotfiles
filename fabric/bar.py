@@ -103,7 +103,7 @@ class StatusBar(Window):
                 Box(
                     style="""
                         background-color: #041011;
-                        border-color: #111A1F;
+                        border-color: #2a3236;
                         border-width: 4px 4px 4px 6px;
                         border-style: solid;
                         padding: 1px;
@@ -119,7 +119,7 @@ class StatusBar(Window):
                     """)
                 ),
                 Box(style="""
-                    background-color: #111A1F;
+                    background-color: #2a3236;
                     margin: 5px 3px 5px -6px;
                     border-radius: 0px 2px 2px 0px;
                 """)
@@ -143,7 +143,7 @@ class StatusBar(Window):
                     style="background-color: #333B3F",
                     children=[Box(
                         style=f"""
-                            background-image: linear-gradient(45deg, #BC83E3, #367AED);
+                            background-image: linear-gradient(45deg, #BC83E3, #6791C9);
                             padding: 1px 0px 1px {current_volume * 50/2}px;
                             margin: 0px {50 * (1 - current_volume / 2)}px 0px 0px;
                         """
