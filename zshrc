@@ -195,12 +195,12 @@ export MANPAGER='nvim +Man!'
 EDITOR=nvim
 
 if command -v exa > /dev/null; then
-  alias ls='exa -h --git --icons'
-  alias ll='exa -h --git --icons -l'
-  alias l='exa -h --git --icons -l'
-  alias la='exa -h --git --icons -la'
-  alias lt='exa -h --tree --git --icons -l'
-  alias lta='exa -h --tree --git --icons -la'
+  alias ls='exa -h --git --icons -sold'
+  alias ll='exa -h --git --icons -l -sold'
+  alias l='exa -h --git --icons -l -sold'
+  alias la='exa -h --git --icons -la -sold'
+  alias lt='exa -h --tree --git --icons -l -sold'
+  alias lta='exa -h --tree --git --icons -la -sold'
 fi
 
 alias grep='grep --color=always'

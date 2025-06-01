@@ -72,6 +72,12 @@ dots-install::bins() {
   $SUDO find bin -type f -exec ln -fs "$HERE/"{} "/usr/local/bin" \;
 }
 
+dots-install::cargo-config() {
+  echo "* installing .cargo/config.toml to ~"
+  mkdir -p ~/.cargo
+  ln -fs "$HERE/.cargo/config.toml" "/home/$USER/.cargo/config.toml"
+}
+
 dots-install::fzf() {
   if ! command -v zsh &>/dev/null; then
     echo "[!] zsh isn't found, so can't set up fzf for it... skipping this module."

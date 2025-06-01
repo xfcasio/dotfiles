@@ -38,4 +38,5 @@ $DEBUG \
   dots-install::fonts                   # fonts I use for common software
   dots-install::fzf                     # install fzf integration for zsh (installed to ~/.fzf.zsh)
   dots-install::bins                    # some utility scripts I often use (installed to /usr/local/bin)
+  dots-install::cargo-config            # install my ~/.cargo/config.toml
 } 2>$REDIRECT_TARGET
