@@ -103,7 +103,7 @@ class StatusBar(Window):
                 Box(
                     style="""
                         background-color: #041011;
-                        border-color: #2a3236;
+                        border-color: #2a323a;
                         border-width: 4px 4px 4px 6px;
                         border-style: solid;
                         padding: 1px;
@@ -119,7 +119,7 @@ class StatusBar(Window):
                     """)
                 ),
                 Box(style="""
-                    background-color: #2a3236;
+                    background-color: #2a323a;
                     margin: 5px 3px 5px -6px;
                     border-radius: 0px 2px 2px 0px;
                 """)
