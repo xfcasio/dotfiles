@@ -63,13 +63,28 @@ require("nvim-tree").setup({
   },
 })
 
--- local lspconfig = require "lspconfig"
+local lspconfig = require "lspconfig"
 
 -- Enable ccls for C/C++
 -- lspconfig.ccls.setup{}
 
 -- Enable rust-analyzer for Rust
--- lspconfig.rust_analyzer.setup{}
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true, -- Enable all features for analysis
+      },
+      diagnostics = {
+        enable = true,
+      },
+    },
+  },
+})
 
 vim.cmd("set numberwidth=4")
 vim.cmd("set relativenumber")
