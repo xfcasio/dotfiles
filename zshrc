@@ -235,3 +235,4 @@ zstyle ':vcs_info:git:*' actionformats "$BRACK_HEX($USER_HEX%b$BRACK_HEX|$CWD_HE
 
 PS1="$BRACK_HEX""[$USER_HEX$USERNAME$AT_HEX@$HOST_HEX$HOST $CWD_HEX%~$BRACK_HEX]$GIT_HEX"'${vcs_info_msg_0_}'"$UID_HEX%(!.#.$)%f%k%b "
 export PATH="$HOME/.cargo/bin/:$HOME/.local/bin/:$PATH"
+export RUSTC_WRAPPER=sccache
