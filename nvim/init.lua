@@ -81,8 +81,26 @@ lspconfig.rust_analyzer.setup({
       },
       diagnostics = {
         enable = true,
+        disabled = { "unresolved-proc-macro" },
+        severity = { min = "error" }
       },
     },
+  },
+})
+
+vim.diagnostic.config({
+  severity_sort = true,
+  signs = {
+    severity = { min = vim.diagnostic.severity.ERROR }
+  },
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.ERROR }
+  },
+  float = {
+    severity = { min = vim.diagnostic.severity.ERROR }
+  },
+  underline = {
+    severity = { min = vim.diagnostic.severity.ERROR }
   },
 })
 
