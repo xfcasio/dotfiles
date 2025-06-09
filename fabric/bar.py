@@ -99,19 +99,20 @@ class StatusBar(Window):
         self.battery = Box(
             spacing=4,
             orientation='h',
+            style='margin: 2px;',
             children=[
                 Box(
                     style="""
                         background-color: #041011;
                         border-color: #2a323a;
-                        border-width: 4px 4px 4px 6px;
+                        border-width: 2px 3px 2px 3px;
                         border-style: solid;
                         padding: 1px;
                         margin: 2px;
                     """,
                     children=Box(style=f"""
                         background-image: linear-gradient(#78B8a2, #78B8a2);
-                        padding: 1px 0px 1px 30px;
+                        padding: 1px 0px 1px 25px;
                         margin: -1px 0px -1px -2px;
                         border-radius: 2px;
                         border-style: solid;
@@ -259,13 +260,30 @@ class StatusBar(Window):
         elif battery_percent >= 15: battery_color = '#ECD28B'
         else: battery_color = '#DF5B61'
 
+
         self.battery.children[0].children[0].set_style(f"""
             background-image: linear-gradient({battery_color}, {battery_color});
-            padding: 1px 0px 1px {3 * battery_percent / 10}px;
-            margin: -1px {3 * (100 - battery_percent) / 10}px -1px -2px;
-            border-radius: 2px;
+            padding: 1px 0px 1px {(2.5 * battery_percent / 10) + 1}px;
+            margin: 1px {(2.5 * (100 - battery_percent) / 10) + 1}px 1px 1px;
+            border-radius: 1px;
             border-style: solid;
             border-color: #333B3F;
+        """)
+
+        self.battery.children[0].set_style(f"""
+            background-color: #041011;
+            border-color: {battery_color};
+            border-width: 1.6px 1.6px 1.6px 1.6px;
+            border-style: solid;
+            border-radius: 2px;
+            padding: 1px;
+            margin: 2px;
+        """)
+
+        self.battery.children[1].set_style(f"""
+            background-color: {battery_color};
+            margin: 4px 5px 4px -6px;
+            border-radius: 0px 1.4px 1.4px 0px;
         """)
 
         return True
