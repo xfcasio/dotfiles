@@ -12,7 +12,139 @@ import Quickshell.Services.Mpris
 import Qt5Compat.GraphicalEffects
 
 Scope {
-    id: root
+  id: root
+
+  MouseArea {
+    anchors.fill: parent
+    onWheel: wheel => {
+      Hyprland.dispatch("workspace 1")
+      Mpris.players.values.forEach((player, idx) => player.pause())
+    }
+  }
+
+  PwObjectTracker {
+    id: pwObjectTraacker
+
+    objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
+  }
+
+  Process {
+    id: batteryProcess
+    running: true
+    command: [ "cat", "/sys/class/power_supply/BAT1/capacity" ]
+    stdout: SplitParser {
+      onRead: percent => batteryLevel = percent
+    }
+  }
+
+  Process {
+    id: internetProcess
+    running: true
+    command: [ "ping", "-c1", "1.0.0.1" ]
+
+    property string fullOutput: ""
+
+    stdout: SplitParser {
+      onRead: out => {
+        internetProcess.fullOutput += out + "\n"
+        if (out.includes("0% packet loss")) internetConnected = true
+      }
+    }
+
+    // Or check when process finishes
+    onExited: {
+      internetConnected = fullOutput.includes("0% packet loss")
+      fullOutput = "" // reset for next run
+    }
+  }
+
+  // CPU monitoring
+  Process {
+    id: cpuProcess
+    command: ["sh", "-c", "top -bn1 | grep '%Cpu(s):' | awk '{print $2}' | sed 's/%us,//'"]
+    running: true
+
+    stdout: SplitParser {
+      onRead: data => {
+        let usage = parseFloat(data.trim())
+        if (!isNaN(usage)) root.cpuUsage = Math.round(usage)
+      }
+    }
+  }
+
+  // RAM monitoring  
+  Process {
+    id: ramProcess
+    command: ["sh", "-c", "free | grep Mem: | awk '{printf \"%.0f\", ($2-$7)/$2*100}'"]
+    running: true
+
+    stdout: SplitParser {
+      onRead: data => {
+        let usage = parseInt(data.trim())
+        if (!isNaN(usage)) ramUsage = usage
+      }
+    }
+  }
+
+  Timer {
+    id: updateTimer
+    interval: 5000
+    running: true
+    repeat: true
+    onTriggered: {
+      internetProcess.running = true
+      batteryProcess.running = true
+    }
+  }
+
+  Timer {
+    interval: 1000
+    running: true
+    repeat: true
+    onTriggered: {
+      cpuProcess.running = true
+      ramProcess.running = true
+      currentTime = Qt.formatDateTime(new Date(), "hh:mm")
+      currentHours = Qt.formatDateTime(new Date(), "hh")
+      currentMinutes = Qt.formatDateTime(new Date(), "mm")
+    }
+  }
+
+
+  // Audio stuff
+  readonly property PwNode sink: Pipewire.defaultAudioSink
+
+  property bool muted: sink?.audio?.muted ?? false
+  property real volume: sink?.audio?.volume ?? 0
+
+  // Date/time formatting
+  property string currentTime: Qt.formatDateTime(new Date(), "hh:mm")
+  property string currentHours: Qt.formatDateTime(new Date(), "hh")
+  property string currentMinutes: Qt.formatDateTime(new Date(), "mm")
+
+  // System info properties
+  property real batteryLevel: 0
+  property real cpuUsage: 0.3
+  property real ramUsage: 0.6
+  property bool internetConnected: false
+  property real currentVolume: 0.5
+
+  function getBatteryColor(percent) {
+    if (percent === 100) return "#78B8a2"
+    if (percent >= 30) return "#78B892"
+    if (percent >= 15) return "#ECD28B"
+    return "#DF5B61"
+  }
+
+  WlrLayershell {
+    id: bar
+    margins { top: 3; bottom: 5; left: 3 }
+    anchors { top: true; bottom: true; left: true }
+
+    layer: WlrLayer.Top
+
+    implicitWidth: 34
+    color: "transparent"
 
     MouseArea {
       anchors.fill: parent
@@ -21,517 +153,21 @@ Scope {
         Mpris.players.values.forEach((player, idx) => player.pause())
       }
     }
-    
-    readonly property PwNode sink: Pipewire.defaultAudioSink
 
-    property bool muted: sink?.audio?.muted ?? false
-    property real volume: sink?.audio?.volume ?? 0
+    // The actual bar - Extra rect to achieve bar-rounding
+    Rectangle {
+      anchors.fill: parent
+      color: "#000A0E"
+      radius: 4
 
-    PwObjectTracker {
-      id: pwObjectTraacker
-      
-      objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-    }
+      ColumnLayout {
+        anchors { fill: parent; topMargin: 3; bottomMargin: 6; leftMargin: 3; rightMargin: 3 }
+        spacing: 4
 
-    Process {
-      id: batteryProcess
-      running: true
-      command: [ "cat", "/sys/class/power_supply/BAT1/capacity" ]
-      stdout: SplitParser {
-        onRead: percent => batteryLevel = percent
+        TopSection {}
+        CenterSection {}
+        BottomSection {}
       }
     }
-
-    Process {
-      id: internetProcess
-      running: true
-      command: [ "ping", "-c1", "1.0.0.1" ]
-
-      property string fullOutput: ""
-
-      stdout: SplitParser {
-        onRead: out => {
-          internetProcess.fullOutput += out + "\n"
-          if (out.includes("0% packet loss")) {
-            internetConnected = true
-          }
-        }
-      }
-
-      // Or check when process finishes
-      onExited: {
-        internetConnected = fullOutput.includes("0% packet loss")
-        fullOutput = "" // reset for next run
-      }
-    }
-
-    // CPU monitoring
-    Process {
-        id: cpuProcess
-        command: ["sh", "-c", "top -bn1 | grep '%Cpu(s):' | awk '{print $2}' | sed 's/%us,//'"]
-        running: true
-        
-        stdout: SplitParser {
-            onRead: data => {
-                let usage = parseFloat(data.trim())
-                if (!isNaN(usage)) root.cpuUsage = Math.round(usage)
-            }
-        }
-    }
-    
-    // RAM monitoring  
-    Process {
-        id: ramProcess
-        command: ["sh", "-c", "free | grep Mem: | awk '{printf \"%.0f\", ($2-$7)/$2*100}'"]
-        running: true
-        
-        stdout: SplitParser {
-            onRead: data => {
-                let usage = parseInt(data.trim())
-                if (!isNaN(usage)) ramUsage = usage
-            }
-        }
-    }
-
-    Timer {
-        id: updateTimer
-        interval: 5000
-        running: true
-        repeat: true
-        onTriggered: {
-            internetProcess.running = true
-            batteryProcess.running = true
-        }
-    }
-
-    Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: {
-          cpuProcess.running = true
-          ramProcess.running = true
-          currentTime = Qt.formatDateTime(new Date(), "hh:mm")
-          currentHours = Qt.formatDateTime(new Date(), "hh")
-          currentMinutes = Qt.formatDateTime(new Date(), "mm")
-        }
-    }
-
-    // System info properties
-    property real batteryLevel: 0
-    property real cpuUsage: 0.3
-    property real ramUsage: 0.6
-    property bool internetConnected: false
-    property real currentVolume: 0.5
-
-    function getBatteryColor(percent) {
-        if (percent === 100) return "#78B8a2"
-        if (percent >= 30) return "#78B892"
-        if (percent >= 15) return "#ECD28B"
-        return "#DF5B61"
-    }
-
-    // Date/time formatting
-    property string currentTime: Qt.formatDateTime(new Date(), "hh:mm")
-    property string currentHours: Qt.formatDateTime(new Date(), "hh")
-    property string currentMinutes: Qt.formatDateTime(new Date(), "mm")
-
-    WlrLayershell {
-        id: bar
-        margins {
-          top: 3
-          bottom: 5
-          left: 3
-        }
-        anchors {
-            top: true
-            bottom: true
-            left: true
-        }
-        
-        layer: WlrLayer.Top
-        
-        implicitWidth: 34
-        color: "transparent"
-        
-        MouseArea {
-            anchors.fill: parent
-            onWheel: wheel => {
-                Hyprland.dispatch("workspace 1")
-                Mpris.players.values.forEach((player, idx) => player.pause())
-            }
-        }
-
-        // The actual bar - Extra rect to achieve bar-rounding
-        Rectangle {
-          anchors.fill: parent
-          radius: 4
-          color: "#000A0E"
-
-          ColumnLayout {
-            anchors.fill: parent
-            anchors.topMargin: 3
-            anchors.bottomMargin: 6
-            anchors.leftMargin: 3
-            anchors.rightMargin: 3
-            spacing: 4
-
-            // Top section - Profile, Volume, Battery
-            Rectangle {
-              Layout.fillWidth: true
-              Layout.preferredHeight: childrenRect.height + 8
-              color: "transparent"
-
-              ColumnLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 2
-                spacing: 4
-
-                // Profile picture
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 24
-                  height: 24
-                  radius: 2
-                  color: "#111A1F"
-                  clip: true
-
-                  Rectangle {
-                    anchors.centerIn: parent
-                    radius: 8
-                    width: 20
-                    height: 18
-                    clip: true
-                    color: "transparent"
-
-                    Image {
-                      anchors.fill: parent
-                      source: `file:///home/${Qt.application.arguments[0]?.split('/').pop() || 'toji'}/.face.jpg`
-                      fillMode: Image.PreserveAspectCrop
-                      scale: 1.2
-
-                      layer.enabled: true
-                      layer.effect: OpacityMask {
-                        maskSource: Rectangle {
-                          width: 16
-                          height: 14
-                          radius: 8
-                        }
-                      }
-                    }
-                  }
-                }
-
-                // Volume widget
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 60
-                  radius: 2
-                  color: "#111A1F"
-
-                  ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 3
-
-                    // Speaker icon
-                    Rectangle {
-                      Layout.alignment: Qt.AlignHCenter
-                      width: 10
-                      height: 10
-                      color: "transparent"
-
-                      Image {
-                        anchors.fill: parent
-                        source: `file:///home/${Qt.application.arguments[0]?.split('/').pop() || 'toji'}/.config/fabric/svg/speaker.svg`
-                        opacity: muted ? 0.6 : 1.0
-                      }
-                    }
-
-                    // Volume bar (vertical)
-                    Rectangle {
-                      Layout.alignment: Qt.AlignHCenter
-                      width: 6
-                      height: 34
-                      color: "#333B3F"
-                      radius: 1
-
-                      Rectangle {
-                        anchors.bottom: parent.bottom
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width
-                        height: muted ? 1 : parent.height * volume
-                        radius: 1
-                        gradient: Gradient {
-                          orientation: Gradient.Vertical
-                          GradientStop { position: 0; color: "#6791C9" }
-                          GradientStop { position: 1; color: "#BC83E3" }
-                        }
-                      }
-                    }
-                  }
-
-                  MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: { sink.audio.muted = !muted; }
-
-                    onWheel: wheel => {
-                      if (sink && !muted) {
-                        let delta = wheel.angleDelta.y > 0 ? 0.1 : -0.1
-                        let newVolume = volume + delta
-                        newVolume = Math.max(0, Math.min(1, newVolume))
-                        sink.audio.volume = newVolume
-                      }
-                    }
-                  }
-                }
-
-                // Internet connection indicator
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 24
-                  radius: 2
-                  color: "#111A1F"
-
-                  Image {
-                    anchors.centerIn: parent
-                    width: 20
-                    height: 20
-                    source: `file:///home/${Qt.application.arguments[0]?.split('/').pop() || 'toji'}/.config/fabric/svg/${internetConnected ? 'connected' : 'disconnected'}.svg`
-                  }
-                }
-
-                // System Tray
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  Layout.preferredHeight: childrenRect.height + 6
-                  width: 22
-                  radius: 2
-                  color: "#111A1F"
-
-                  ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 3
-
-                    Repeater {
-                      model: SystemTray.items
-
-                      Rectangle {
-                        required property var modelData
-                        Layout.alignment: Qt.AlignHCenter
-                        height: 16
-                        width: 16
-                        color: "transparent"
-
-                        Image {
-                          anchors.centerIn: parent
-                          width: 15
-                          height: 15
-                          source: modelData.icon
-                        }
-
-                        MouseArea {
-                          anchors.fill: parent
-                          onClicked: {
-                            if (modelData.hasMenu) QsMenuAnchor.open(modelData.menu)
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-
-            // Center section - Workspaces
-            Rectangle {
-              Layout.fillHeight: true
-              Layout.fillWidth: true
-              color: "transparent"
-
-              Rectangle {
-                anchors.centerIn: parent
-                height: {
-                  let totalHeight = 0
-                  let spacing = 3
-                  let workspaceCount = Hyprland.workspaces.values.length
-
-                  // Base height: inactive workspaces (10px each) + one active (40px) + spacing
-                  totalHeight = (workspaceCount - 1) * 10 + 40 + (workspaceCount - 1) * spacing
-                  return totalHeight + 12 // +12 for padding
-                }
-                width: 18
-                radius: 2
-                color: "#111A1F"
-
-                ColumnLayout {
-                  anchors.centerIn: parent
-                  spacing: 3
-
-                  ColumnLayout {
-                    spacing: 3
-
-                    Repeater {
-                      model: Hyprland.workspaces
-
-                      Rectangle {
-                        required property var modelData
-                        property bool hovered: false
-
-                        width: 6
-                        Layout.preferredHeight: modelData.active ? 40 : 10
-                        radius: 1
-
-                        color: (modelData.active || hovered) ? "#6791C9" : "#333B3F"
-
-                        Behavior on Layout.preferredHeight {
-                          NumberAnimation { duration: 80; easing.type: Easing.OutCubic }
-                        }
-
-                        MouseArea {
-                          anchors.fill: parent
-                          onClicked: Hyprland.dispatch(`workspace ${modelData.id.toString()}`)
-
-                          hoverEnabled: true
-                          onEntered: { parent.hovered = true }
-                          onExited: { parent.hovered = false }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-
-            // Bottom section - System tray, network, indicators, time
-            Rectangle {
-              Layout.fillWidth: true
-              Layout.preferredHeight: childrenRect.height + 8
-              color: "transparent"
-
-              ColumnLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 2
-                spacing: 4
-
-                // Battery widget
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 32
-                  radius: 2
-                  color: "#111A1F"
-
-                  Rectangle {
-                    anchors.centerIn: parent
-                    width: 14
-                    height: 24
-                    color: "transparent"
-
-                    ColumnLayout {
-                      anchors.centerIn: parent
-                      spacing: 0
-
-                      Rectangle {
-                        Layout.alignment: Qt.AlignHCenter
-                        width: 8
-                        height: 2
-                        radius: 1
-                        color: getBatteryColor(batteryLevel)
-                      }
-
-                      Rectangle {
-                        width: 12
-                        height: 18
-                        radius: 1
-                        color: "#041011"
-                        border.color: getBatteryColor(batteryLevel)
-                        border.width: 1.2
-
-                        Rectangle {
-                          anchors.bottom: parent.bottom
-                          anchors.horizontalCenter: parent.horizontalCenter
-                          anchors.bottomMargin: 2
-                          anchors.leftMargin: 2
-                          anchors.rightMargin: 2
-                          width: parent.width - 4
-                          height: Math.max(0, (parent.height - 4) * (batteryLevel / 100))
-                          radius: 0.3
-                          color: getBatteryColor(batteryLevel)
-                        }
-                      }
-                    }
-                  }
-                }
-
-                // CPU and RAM indicators
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 44
-                  radius: 2
-                  color: "#111A1F"
-
-                  ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 2
-
-                    // CPU indicator
-                    RadialIndicator {
-                      Layout.alignment: Qt.AlignHCenter
-                      percent: cpuUsage
-                      indicatorColor: "#78B892"
-                      backgroundColor: "#333B3F"
-                      size: 18
-                    }
-
-                    // RAM indicator
-                    RadialIndicator {
-                      Layout.alignment: Qt.AlignHCenter
-                      percent: ramUsage
-                      indicatorColor: "#DF5B61"
-                      backgroundColor: "#333B3F"
-                      size: 18
-                    }
-                  }
-                }
-
-                // Time display (two lines)
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 42
-                  radius: 2
-                  color: "#111A1F"
-
-                  ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 0
-
-                    Text {
-                      Layout.alignment: Qt.AlignHCenter
-                      text: currentHours
-                      color: "#78B892"
-                      font.family: "Cartograph CF Heavy"
-                      font.pixelSize: 13
-                    }
-
-                    Text {
-                      Layout.alignment: Qt.AlignHCenter
-                      text: currentMinutes
-                      color: "#78B892"
-                      font.family: "Cartograph CF Heavy"
-                      font.pixelSize: 13
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+  }
+}
