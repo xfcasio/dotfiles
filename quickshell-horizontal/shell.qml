@@ -112,8 +112,6 @@ Scope {
           cpuProcess.running = true
           ramProcess.running = true
           currentTime = Qt.formatDateTime(new Date(), "hh:mm")
-          currentHours = Qt.formatDateTime(new Date(), "hh")
-          currentMinutes = Qt.formatDateTime(new Date(), "mm")
         }
     }
 
@@ -133,25 +131,23 @@ Scope {
 
     // Date/time formatting
     property string currentTime: Qt.formatDateTime(new Date(), "hh:mm")
-    property string currentHours: Qt.formatDateTime(new Date(), "hh")
-    property string currentMinutes: Qt.formatDateTime(new Date(), "mm")
 
     WlrLayershell {
         id: bar
         margins {
           top: 3
-          bottom: 5
-          left: 3
+          right: 8
+          left: 5
         }
         anchors {
             top: true
-            bottom: true
             left: true
+            right: true
         }
         
         layer: WlrLayer.Top
         
-        implicitWidth: 34
+        implicitHeight: 32
         color: "transparent"
         
         MouseArea {
@@ -168,38 +164,33 @@ Scope {
           radius: 4
           color: "#000A0E"
 
-          ColumnLayout {
+          RowLayout {
             anchors.fill: parent
-            anchors.topMargin: 3
-            anchors.bottomMargin: 6
-            anchors.leftMargin: 3
-            anchors.rightMargin: 3
-            spacing: 4
+            anchors.rightMargin: 8
+            anchors.leftMargin: 4
+            spacing: 2
 
-            // Top section - Profile, Volume, Battery
+            // Left section - Profile, Volume, Battery
             Rectangle {
-              Layout.fillWidth: true
-              Layout.preferredHeight: childrenRect.height + 8
+              Layout.fillHeight: true
+              Layout.preferredWidth: childrenRect.width
               color: "transparent"
 
-              ColumnLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 2
-                spacing: 4
+              RowLayout {
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 6
 
                 // Profile picture
                 Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 24
+                  width: 28
                   height: 24
-                  radius: 2
+                  radius: 3
                   color: "#111A1F"
                   clip: true
 
                   Rectangle {
                     anchors.centerIn: parent
-                    radius: 8
+                    radius: 10
                     width: 20
                     height: 18
                     clip: true
@@ -214,9 +205,9 @@ Scope {
                       layer.enabled: true
                       layer.effect: OpacityMask {
                         maskSource: Rectangle {
-                          width: 16
-                          height: 14
-                          radius: 8
+                          width: 20
+                          height: 18
+                          radius: 10
                         }
                       }
                     }
@@ -225,19 +216,17 @@ Scope {
 
                 // Volume widget
                 Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 60
-                  radius: 2
+                  width: 65
+                  height: 18
+                  radius: 3
                   color: "#111A1F"
 
-                  ColumnLayout {
+                  RowLayout {
                     anchors.centerIn: parent
                     spacing: 3
 
                     // Speaker icon
                     Rectangle {
-                      Layout.alignment: Qt.AlignHCenter
                       width: 10
                       height: 10
                       color: "transparent"
@@ -249,24 +238,23 @@ Scope {
                       }
                     }
 
-                    // Volume bar (vertical)
+                    // Volume bar
                     Rectangle {
-                      Layout.alignment: Qt.AlignHCenter
-                      width: 6
-                      height: 34
+                      width: 38
+                      height: 6
                       color: "#333B3F"
                       radius: 1
 
                       Rectangle {
-                        anchors.bottom: parent.bottom
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width
-                        height: muted ? 1 : parent.height * volume
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: muted ? 2 : parent.width * volume
+                        height: parent.height
                         radius: 1
                         gradient: Gradient {
-                          orientation: Gradient.Vertical
-                          GradientStop { position: 0; color: "#6791C9" }
-                          GradientStop { position: 1; color: "#BC83E3" }
+                          orientation: Gradient.Horizontal
+                          GradientStop { position: 0; color: "#BC83E3" }
+                          GradientStop { position: 1; color: "#6791C9" }
                         }
                       }
                     }
@@ -288,57 +276,50 @@ Scope {
                   }
                 }
 
-                // Internet connection indicator
+
+                // Battery widget
                 Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 24
-                  radius: 2
+                  width: 40
+                  height: 20
+                  radius: 3
                   color: "#111A1F"
 
-                  Image {
+                  Rectangle {
                     anchors.centerIn: parent
-                    width: 20
-                    height: 20
-                    source: `file:///home/${Qt.application.arguments[0]?.split('/').pop() || 'toji'}/.config/fabric/svg/${internetConnected ? 'connected' : 'disconnected'}.svg`
-                  }
-                }
+                    width: 30
+                    height: 16
+                    color: "transparent"
 
-                // System Tray
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  Layout.preferredHeight: childrenRect.height + 6
-                  width: 22
-                  radius: 2
-                  color: "#111A1F"
-
-                  ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 3
-
-                    Repeater {
-                      model: SystemTray.items
+                    RowLayout {
+                      anchors.centerIn: parent
+                      spacing: 0
 
                       Rectangle {
-                        required property var modelData
-                        Layout.alignment: Qt.AlignHCenter
-                        height: 16
-                        width: 16
-                        color: "transparent"
+                        width: 25
+                        height: 12
+                        radius: 2
+                        color: "#041011"
+                        border.color: getBatteryColor(batteryLevel)
+                        border.width: 1.6
 
-                        Image {
-                          anchors.centerIn: parent
-                          width: 15
-                          height: 15
-                          source: modelData.icon
+                        Rectangle {
+                          anchors.left: parent.left
+                          anchors.verticalCenter: parent.verticalCenter
+                          anchors.leftMargin: 3  // 3px padding from left edge
+                          anchors.topMargin: 3   // 3px padding from top
+                          anchors.bottomMargin: 3 // 3px padding from bottom
+                          width: Math.max(0, (parent.width - 6) * (batteryLevel / 100)) // -6 for left+right padding
+                          height: parent.height - 6 // -6 for top+bottom padding
+                          radius: 0.4
+                          color: getBatteryColor(batteryLevel)
                         }
+                      }
 
-                        MouseArea {
-                          anchors.fill: parent
-                          onClicked: {
-                            if (modelData.hasMenu) QsMenuAnchor.open(modelData.menu)
-                          }
-                        }
+                      Rectangle {
+                        width: 2
+                        height: 6
+                        radius: 1
+                        color: getBatteryColor(batteryLevel)
                       }
                     }
                   }
@@ -348,30 +329,30 @@ Scope {
 
             // Center section - Workspaces
             Rectangle {
-              Layout.fillHeight: true
               Layout.fillWidth: true
+              Layout.fillHeight: true
               color: "transparent"
 
               Rectangle {
                 anchors.centerIn: parent
-                height: {
-                  let totalHeight = 0
-                  let spacing = 3
+                width: {
+                  let totalWidth = 0
+                  let spacing = 2
                   let workspaceCount = Hyprland.workspaces.values.length
 
-                  // Base height: inactive workspaces (10px each) + one active (40px) + spacing
-                  totalHeight = (workspaceCount - 1) * 10 + 40 + (workspaceCount - 1) * spacing
-                  return totalHeight + 12 // +12 for padding
+                  // Base width: inactive workspaces (10px each) + one active (40px) + spacing
+                  totalWidth = (workspaceCount - 1) * 10 + 40 + (workspaceCount - 1) * spacing
+                  return totalWidth + 22 // +22 for padding
                 }
-                width: 18
-                radius: 2
+                height: 16
+                radius: 3
                 color: "#111A1F"
 
-                ColumnLayout {
+                RowLayout {
                   anchors.centerIn: parent
-                  spacing: 3
+                  spacing: 2
 
-                  ColumnLayout {
+                  RowLayout {
                     spacing: 3
 
                     Repeater {
@@ -379,15 +360,16 @@ Scope {
 
                       Rectangle {
                         required property var modelData
-                        property bool hovered: false
+                        property bool hovered: false  // track hover state
 
-                        width: 6
-                        Layout.preferredHeight: modelData.active ? 40 : 10
+                        Layout.preferredWidth: modelData.active ? 40 : 10
+                        height: 4
                         radius: 1
 
+                        // Color based on both active state and hover
                         color: (modelData.active || hovered) ? "#6791C9" : "#333B3F"
 
-                        Behavior on Layout.preferredHeight {
+                        Behavior on Layout.preferredWidth {
                           NumberAnimation { duration: 80; easing.type: Easing.OutCubic }
                         }
 
@@ -406,127 +388,117 @@ Scope {
               }
             }
 
-            // Bottom section - System tray, network, indicators, time
+            // Right section - System tray, network, indicators, time
             Rectangle {
-              Layout.fillWidth: true
-              Layout.preferredHeight: childrenRect.height + 8
+              Layout.fillHeight: true
+              Layout.preferredWidth: childrenRect.width
               color: "transparent"
 
-              ColumnLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 2
-                spacing: 4
+              RowLayout {
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 6
 
-                // Battery widget
-                Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 32
-                  radius: 2
-                  color: "#111A1F"
+                // System Tray
+                RowLayout {
+                  spacing: 20
 
                   Rectangle {
-                    anchors.centerIn: parent
-                    width: 14
-                    height: 24
-                    color: "transparent"
+                    Layout.preferredWidth: childrenRect.width + 14
+                    height: 22
+                    radius: 4
+                    color: "#111A1F"
 
-                    ColumnLayout {
+                    RowLayout {
                       anchors.centerIn: parent
-                      spacing: 0
+                      spacing: 8
 
-                      Rectangle {
-                        Layout.alignment: Qt.AlignHCenter
-                        width: 8
-                        height: 2
-                        radius: 1
-                        color: getBatteryColor(batteryLevel)
-                      }
-
-                      Rectangle {
-                        width: 12
-                        height: 18
-                        radius: 1
-                        color: "#041011"
-                        border.color: getBatteryColor(batteryLevel)
-                        border.width: 1.2
+                      Repeater {
+                        model: SystemTray.items
 
                         Rectangle {
-                          anchors.bottom: parent.bottom
-                          anchors.horizontalCenter: parent.horizontalCenter
-                          anchors.bottomMargin: 2
-                          anchors.leftMargin: 2
-                          anchors.rightMargin: 2
-                          width: parent.width - 4
-                          height: Math.max(0, (parent.height - 4) * (batteryLevel / 100))
-                          radius: 0.3
-                          color: getBatteryColor(batteryLevel)
+                          required property var modelData
+                          height: 15
+                          width: 15
+                          color: "transparent"
+
+                          Image {
+                            anchors.centerIn: parent
+                            width: 16
+                            height: 16
+                            source: modelData.icon
+                          }
+
+                          MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                              if (modelData.hasMenu) QsMenuAnchor.open(modelData.menu)
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
 
-                // CPU and RAM indicators
+                // Internet connection indicator
                 Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
                   width: 22
-                  height: 44
-                  radius: 2
+                  height: 20
+                  radius: 4
                   color: "#111A1F"
 
-                  ColumnLayout {
+                  Image {
                     anchors.centerIn: parent
+                    width: 20
+                    height: 20
+                    source: `file:///home/${Qt.application.arguments[0]?.split('/').pop() || 'toji'}/.config/fabric/svg/${internetConnected ? 'connected' : 'disconnected'}.svg`
+                  }
+                }
+
+                // CPU and RAM indicators
+                Rectangle {
+                  width: 50
+                  height: 22
+                  radius: 3
+                  color: "#111A1F"
+
+                  RowLayout {
+                    anchors.centerIn: parent
+                    height: 60
                     spacing: 2
 
                     // CPU indicator
                     RadialIndicator {
-                      Layout.alignment: Qt.AlignHCenter
                       percent: cpuUsage
                       indicatorColor: "#78B892"
                       backgroundColor: "#333B3F"
-                      size: 18
+                      size: 20
                     }
 
                     // RAM indicator
                     RadialIndicator {
-                      Layout.alignment: Qt.AlignHCenter
                       percent: ramUsage
                       indicatorColor: "#DF5B61"
                       backgroundColor: "#333B3F"
-                      size: 18
+                      size: 20
                     }
                   }
                 }
 
-                // Time display (two lines)
+                // Time display
                 Rectangle {
-                  Layout.alignment: Qt.AlignHCenter
-                  width: 22
-                  height: 42
-                  radius: 2
+                  width: timeText.width + 14
+                  height: 22
+                  radius: 4
                   color: "#111A1F"
 
-                  ColumnLayout {
+                  Text {
+                    id: timeText
                     anchors.centerIn: parent
-                    spacing: 0
-
-                    Text {
-                      Layout.alignment: Qt.AlignHCenter
-                      text: currentHours
-                      color: "#78B892"
-                      font.family: "Cartograph CF Heavy"
-                      font.pixelSize: 13
-                    }
-
-                    Text {
-                      Layout.alignment: Qt.AlignHCenter
-                      text: currentMinutes
-                      color: "#78B892"
-                      font.family: "Cartograph CF Heavy"
-                      font.pixelSize: 13
-                    }
+                    text: currentTime
+                    color: "#78B892"
+                    font.family: "Cartograph CF Heavy Italic"
+                    font.pixelSize: 14
                   }
                 }
               }
@@ -535,3 +507,4 @@ Scope {
         }
       }
     }
+
