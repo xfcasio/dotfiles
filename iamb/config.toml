@@ -1,8 +1,8 @@
 default_profile = "default"
 
 [profiles.default]
-user_id = "@xfc:monero.social"
-url = "https://matrix.monero.social"
+user_id = "@username:home.server"
+url = "FILL_THIS_OUT"
 
 [settings]
 external_edit_file_suffix = ".md"

@@ -8,6 +8,11 @@ dots-install::wallpaper() {
   $SUDO ln -fs "$1" /usr/share/hypr/wall0.png
 }
 
+dots-install::quickshell() {
+  echo "* creating quickshell symbolic link"
+  ln -fs "$HERE/quickshell" "/home/$USER/.config/"
+}
+
 dots-install::waybar() {
   echo "* creating waybar symbolic link"
   ln -fs "$HERE/waybar" "/home/$USER/.config/"
