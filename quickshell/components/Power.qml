@@ -10,20 +10,19 @@ import Quickshell.Services.SystemTray
 import Quickshell.Services.Pipewire
 import Quickshell.Services.Mpris
 import Qt5Compat.GraphicalEffects
-import 'components' as Components
 
 Rectangle {
-  Layout.fillHeight: true
-  Layout.fillWidth: true
-  color: "transparent"
+  Layout.alignment: Qt.AlignHCenter
+  Layout.topMargin: 4
+  height: 24
+  width: 24
+  radius: 2
+  color: "#111A1F"
 
-  ColumnLayout {
-    anchors.horizontalCenter: parent.horizontalCenter
-    Layout.fillHeight: true
-    Layout.fillWidth: true
-    spacing: 6
-    y: (bar.height - height) / 6
-
-    Components.HyprlandWorkspaces {}
+  Image {
+    anchors.centerIn: parent
+    width: 14
+    height: 14
+    source: `file:///home/${username}/.config/quickshell/svg/power.svg`
   }
 }
