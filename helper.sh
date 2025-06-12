@@ -1,3 +1,8 @@
+dots-install::profile-picture() {
+  echo "* creating profile picture symbolic link in ~/.face.jpg"
+  ln -fs "$HERE/face.jpg" "/home/$USER/.face.jpg"
+}
+
 dots-install::hyprland() {
   echo "* creating hyprland symbolic link"
   ln -fs "$HERE/hypr" "/home/$USER/.config/"
