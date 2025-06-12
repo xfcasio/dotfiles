@@ -14,6 +14,7 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
   Layout.preferredHeight: childrenRect.height + 8
+  visible: SystemTray.items.values.length
   width: 24
   radius: 2
   color: "#111A1F"
