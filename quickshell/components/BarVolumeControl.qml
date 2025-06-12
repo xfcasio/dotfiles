@@ -108,7 +108,10 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width
-        height: muted ? 1 : parent.height * volume
+        height: {
+          let len = muted ? 1 : parent.height * volume;
+          return (len > 42) ? 42 : len;
+        }
         radius: 1
         gradient: Gradient {
           orientation: Gradient.Vertical
