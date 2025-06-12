@@ -5,7 +5,12 @@ import Quickshell.Services.Pipewire
 import Quickshell.Widgets
 
 Scope {
-	id: root
+  id: root
+
+  readonly property PwNode sink: Pipewire.defaultAudioSink
+  property bool muted: sink?.audio?.muted ?? false
+  property real volume: sink?.audio?.volume ?? 0
+	property bool shouldShowOsd: false
 
 	// Bind the pipewire node so its volume will be tracked
 	PwObjectTracker {
@@ -21,8 +26,6 @@ Scope {
 		}
 	}
 
-	property bool shouldShowOsd: false
-
 	Timer {
 		id: hideTimer
 		interval: 1000
@@ -35,14 +38,29 @@ Scope {
 		PanelWindow {
 
 			anchors.bottom: true
-			margins.bottom: screen.height / 10
+			margins.bottom: screen.height / 12
 
 			implicitWidth: 200
 			implicitHeight: 36
 			color: "transparent"
 
 			// An empty click mask prevents the window from blocking mouse events.
-			mask: Region {}
+      //mask: Region {}
+
+      MouseArea {
+        anchors.fill: parent
+
+        onClicked: { sink.audio.muted = !muted; }
+
+        onWheel: wheel => {
+          if (sink && !muted) {
+            let delta = wheel.angleDelta.y > 0 ? 0.1 : -0.1
+            let newVolume = volume + delta
+            newVolume = Math.max(0, Math.min(1, newVolume))
+            sink.audio.volume = newVolume
+          }
+        }
+      }
 
 			Rectangle {
 				id: mainRect
@@ -149,6 +167,7 @@ Scope {
 					IconImage {
 						implicitSize: 20
 						source: "file:///home/toji/.config/quickshell/svg/speaker.svg"
+            opacity: muted ? 0.6 : 1.0
 					}
 
           Rectangle {
@@ -173,7 +192,7 @@ Scope {
               }
 
               implicitWidth: {
-                let len = parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0);
+                let len = muted ? 1 : parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0);
                 return (len > parent.width) ? parent.width : len;
               }
 						}
