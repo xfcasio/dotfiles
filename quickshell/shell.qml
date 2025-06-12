@@ -23,6 +23,8 @@ Scope {
     }
   }
 
+  Components.PopoutVolume {}
+
   WlrLayershell {
     id: bar
     margins { top: 3; bottom: 5; left: 3 }
