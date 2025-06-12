@@ -27,8 +27,10 @@ Rectangle {
     command: [ "playerctl", "status" ]
     stdout: SplitParser {
       onRead: s => {
-        if (s === "Playing") playing = true
-        else playing = false
+        if (s === "Playing") {
+          playing = true;
+          if (artUrl === '') { artUrl = `file:///home/${username}/.config/quickshell/svg/player-background.png` }
+        } else playing = false
       }
     }
   }
@@ -39,7 +41,15 @@ Rectangle {
     command: [ "playerctl", "metadata", "mpris:artUrl" ]
     stdout: SplitParser {
       onRead: art => {
-        if (art && art.trim() !== "") artUrl = art.trim();
+        if (art && art.trim() !== "") { artUrl = art.trim() }
+        else { artUrl = `file:///home/${username}/.config/quickshell/svg/player-background.png` }
+      }
+    }
+
+    stderr: SplitParser {
+      onRead: err => {
+        if (err === "No player could handle this command")
+          artUrl = `file:///home/${username}/.config/quickshell/svg/player-background.png`
       }
     }
   }
