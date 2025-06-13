@@ -23,6 +23,10 @@ Rectangle {
   property bool playing: false
   property string artUrl: ''
 
+  Process { id: playerPrev; running: false; command: [ "playerctl", "previous" ] }
+  Process { id: playerPlayPause; running: false; command: [ "playerctl", "play-pause" ] }
+  Process { id: playerNext; running: false; command: [ "playerctl", "next" ] }
+
   Process {
     id: statusUpdater
     running: true
@@ -56,20 +60,38 @@ Rectangle {
     }
   }
 
-  Behavior on implicitHeight {
-    NumberAnimation {
-      duration: 1000
-      easing.type: Easing.InOutQuart
-    }
-  }
-
   Timer {
     interval: 600
     running: true
     repeat: true
-    onTriggered: {
-      artUrlUpdater.running = true
-      statusUpdater.running = true
+    onTriggered: { artUrlUpdater.running = true }
+  }
+
+  Timer {
+    interval: 4000
+    running: true
+    repeat: true
+    onTriggered: { statusUpdater.running = true }
+  }
+
+  MouseArea {
+    anchors.fill: parent
+    acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+
+    // so the parent handler doesn't trigger here
+    onWheel: () => {}
+
+    onClicked: (mouse) => {
+      if (mouse.button === Qt.LeftButton) { playerPrev.running = true; }
+      else if (mouse.button === Qt.RightButton) { playerNext.running = true; }
+      else if (mouse.button === Qt.MiddleButton) { playerPlayPause.running = true; }
+    }
+  }
+
+  Behavior on implicitHeight {
+    NumberAnimation {
+      duration: 1000
+      easing.type: Easing.InOutQuart
     }
   }
 
