@@ -15,7 +15,7 @@ Rectangle {
   Layout.alignment: Qt.AlignHCenter
   width: 24
   height: 74
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
 
   readonly property PwNode sink: Pipewire.defaultAudioSink

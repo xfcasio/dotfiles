@@ -15,7 +15,7 @@ Rectangle {
   Layout.alignment: Qt.AlignHCenter
   width: 28
   height: 28
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
   clip: true
 

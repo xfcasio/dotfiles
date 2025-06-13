@@ -16,7 +16,7 @@ Rectangle {
   Layout.topMargin: 4
   height: 24
   width: 24
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
 
   Image {

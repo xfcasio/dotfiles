@@ -12,10 +12,12 @@ import Quickshell.Services.Mpris
 import Qt5Compat.GraphicalEffects
 
 Rectangle {
+  id: playerModule
   Layout.alignment: Qt.AlignHCenter
   implicitHeight: playing ? 120 : 24
+  layer.enabled: true
   width: 24
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
 
   property bool playing: false
@@ -79,7 +81,6 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     height: playing ? 96 : 0
-    radius: 2
     clip: true
 
     Behavior on height {
@@ -105,13 +106,22 @@ Rectangle {
         }
       }
     }
+
+    layer.enabled: true
+    layer.effect: OpacityMask {
+      maskSource: Rectangle {
+        width: topHalf.width
+        height: topHalf.height
+        radius: playerModule.radius
+      }
+    }
   }
 
   Rectangle {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom
     height: 24
-    radius: 2
+    radius: playerModule.radius
     color: "#111A1F"
 
     Image {

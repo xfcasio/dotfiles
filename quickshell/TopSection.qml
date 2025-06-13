@@ -17,6 +17,8 @@ Rectangle {
   Layout.preferredHeight: columnLayout.implicitHeight + 12
   color: "transparent"
 
+  property real innerModulesRadius: 3
+
   Behavior on Layout.preferredHeight {
     NumberAnimation {
       duration: 1000
@@ -91,7 +93,7 @@ Rectangle {
       Layout.alignment: Qt.AlignHCenter
       width: 24
       height: 54
-      radius: 2
+      radius: innerModulesRadius
       color: "#111A1F"
 
       ColumnLayout {

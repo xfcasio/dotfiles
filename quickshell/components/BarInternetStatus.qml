@@ -15,7 +15,7 @@ Rectangle {
   Layout.alignment: Qt.AlignHCenter
   width: 24
   height: 24
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
   
   property bool internetConnected: false

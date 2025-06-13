@@ -16,7 +16,7 @@ Rectangle {
   Layout.preferredHeight: childrenRect.height + 8
   visible: SystemTray.items.values.length
   width: 24
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
 
   ColumnLayout {

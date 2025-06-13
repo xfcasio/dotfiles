@@ -24,7 +24,7 @@ Rectangle {
   Layout.alignment: Qt.AlignHCenter
   width: 24
   height: 32
-  radius: 2
+  radius: innerModulesRadius
   color: "#111A1F"
 
   Process {
