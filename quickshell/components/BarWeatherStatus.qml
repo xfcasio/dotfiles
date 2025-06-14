@@ -14,7 +14,7 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
   width: 28
-  height: 52
+  height: 48
   color: "#111A1F"
   radius: innerModulesRadius
 
@@ -39,10 +39,11 @@ Rectangle {
 
   ColumnLayout {
     anchors.centerIn: parent
-    spacing: 1
+    spacing: 0
 
     Rectangle {
       Layout.alignment: Qt.AlignHCenter
+      Layout.topMargin: 4
       height: 20
       Image {
         anchors.centerIn: parent
