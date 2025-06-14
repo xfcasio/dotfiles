@@ -49,6 +49,9 @@ Scope {
       color: "#000A0E"
       radius: 4
 
+      border.width: 2
+      border.color: "#111A1F"
+
       Behavior on height {
         NumberAnimation {
           duration: 1000
