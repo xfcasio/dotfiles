@@ -13,8 +13,9 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  width: 28
-  height: 28
+  Layout.topMargin: 4
+  width: 32
+  height: 32
   radius: innerModulesRadius
   color: "#111A1F"
   clip: true
@@ -22,8 +23,8 @@ Rectangle {
   Rectangle {
     anchors.centerIn: parent
     radius: 8
-    width: 24
-    height: 22
+    width: 26
+    height: 24
     clip: true
     color: "transparent"
 
@@ -36,8 +37,8 @@ Rectangle {
       layer.enabled: true
       layer.effect: OpacityMask {
         maskSource: Rectangle {
-          width: 16
-          height: 14
+          width: 20
+          height: 18
           radius: 10
         }
       }

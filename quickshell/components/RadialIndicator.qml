@@ -24,7 +24,7 @@ Canvas {
         ctx.lineCap = "round"
         
         ctx.strokeStyle = backgroundColor
-        ctx.lineWidth = 4
+        ctx.lineWidth = 5
         ctx.beginPath()
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI)
         ctx.stroke()

@@ -14,15 +14,15 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
   Layout.topMargin: 4
-  height: 24
-  width: 24
+  height: 28
+  width: 28
   radius: innerModulesRadius
-  color: "#111A1F"
+  color: "#171A20"
 
   Image {
     anchors.centerIn: parent
-    width: 14
-    height: 14
+    width: 16
+    height: 16
     source: `file:///home/${username}/.config/quickshell/svg/power.svg`
   }
 }

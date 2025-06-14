@@ -22,8 +22,8 @@ Rectangle {
   }
 
   Layout.alignment: Qt.AlignHCenter
-  width: 24
-  height: 32
+  width: 28
+  height: 40
   radius: innerModulesRadius
   color: "#111A1F"
 
@@ -45,8 +45,8 @@ Rectangle {
 
   Rectangle {
     anchors.centerIn: parent
-    width: 14
-    height: 24
+    width: 16
+    height: 28
     color: "transparent"
 
     ColumnLayout {
@@ -55,19 +55,19 @@ Rectangle {
 
       Rectangle {
         Layout.alignment: Qt.AlignHCenter
-        width: 8
+        width: 10
         height: 2
         radius: 1
-        color: getBatteryColor(batteryLevel)
+        color: "#A9B9B9"
       }
 
       Rectangle {
-        width: 12
-        height: 18
+        width: 14
+        height: 24
         radius: 1
         color: "#041011"
-        border.color: getBatteryColor(batteryLevel)
-        border.width: 1.2
+        border.color: "#A9B9B9"
+        border.width: 0.5
 
         Rectangle {
           anchors.bottom: parent.bottom

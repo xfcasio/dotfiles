@@ -13,9 +13,9 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  Layout.preferredHeight: childrenRect.height + 8
+  Layout.preferredHeight: childrenRect.height + 10
   visible: SystemTray.items.values.length
-  width: 24
+  width: 28
   radius: innerModulesRadius
   color: "#111A1F"
 
@@ -29,14 +29,14 @@ Rectangle {
       Rectangle {
         required property var modelData
         Layout.alignment: Qt.AlignHCenter
-        height: 16
-        width: 16
+        height: 18
+        width: 18
         color: "transparent"
 
         Image {
           anchors.centerIn: parent
-          width: 15
-          height: 15
+          width: 17
+          height: 17
           source: modelData.icon
         }
 

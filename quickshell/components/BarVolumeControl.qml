@@ -13,8 +13,8 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  width: 24
-  height: 74
+  width: 28
+  height: 78
   radius: innerModulesRadius
   color: "#111A1F"
 
@@ -84,8 +84,8 @@ Rectangle {
     // Speaker icon
     Rectangle {
       Layout.alignment: Qt.AlignHCenter
-      width: 12
-      height: 12
+      width: 14
+      height: 14
       color: "transparent"
 
       Image {
@@ -99,8 +99,9 @@ Rectangle {
     Rectangle {
       id: volumeBar
       Layout.alignment: Qt.AlignHCenter
-      width: 6
-      height: 42
+      Layout.bottomMargin: 4
+      width: 8
+      height: 46
       color: "#333B3F"
       radius: 1
 

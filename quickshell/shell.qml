@@ -32,7 +32,7 @@ Scope {
     
     layer: WlrLayer.Top
 
-    implicitWidth: 36
+    implicitWidth: 44
     color: "transparent"
 
     MouseArea {

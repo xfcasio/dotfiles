@@ -13,8 +13,8 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  width: 24
-  height: 24
+  width: 28
+  height: 28
   radius: innerModulesRadius
   color: "#111A1F"
   
@@ -52,8 +52,8 @@ Rectangle {
 
   Image {
     anchors.centerIn: parent
-    width: 20
-    height: 20
+    width: 23
+    height: 23
     source: `file:///home/${username}/.config/quickshell/svg/${internetConnected ? 'connected' : 'disconnected'}.svg`
   }
 }

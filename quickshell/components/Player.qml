@@ -14,9 +14,9 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
   id: playerModule
   Layout.alignment: Qt.AlignHCenter
-  implicitHeight: playing ? 120 : 24
+  implicitHeight: playing ? 120 : 28
   layer.enabled: true
-  width: 24
+  width: 28
   radius: innerModulesRadius
   color: "#111A1F"
 
@@ -142,14 +142,15 @@ Rectangle {
   Rectangle {
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom
+    anchors.bottomMargin: 2
     height: 24
     radius: playerModule.radius
     color: "#111A1F"
 
     Image {
       anchors.centerIn: parent
-      width: 12
-      height: 12
+      width: 14
+      height: 14
       source: `file:///home/${username}/.config/quickshell/svg/headphones.svg`
     }
   }

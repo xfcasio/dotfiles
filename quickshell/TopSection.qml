@@ -91,14 +91,14 @@ Rectangle {
     // CPU and RAM indicators
     Rectangle {
       Layout.alignment: Qt.AlignHCenter
-      width: 24
-      height: 54
+      width: 28
+      height: 60
       radius: innerModulesRadius
       color: "#111A1F"
 
       ColumnLayout {
         anchors.centerIn: parent
-        spacing: 3
+        spacing: 4
 
         // CPU indicator
         Components.RadialIndicator {
@@ -106,7 +106,7 @@ Rectangle {
           percent: cpuUsage
           indicatorColor: "#78B892"
           backgroundColor: "#333B3F"
-          size: 20
+          size: 22
         }
 
         // RAM indicator
@@ -115,7 +115,7 @@ Rectangle {
           percent: ramUsage
           indicatorColor: "#DF5B61"
           backgroundColor: "#333B3F"
-          size: 20
+          size: 22
         }
       }
     }
