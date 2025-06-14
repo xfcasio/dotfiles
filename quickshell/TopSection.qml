@@ -19,6 +19,10 @@ Rectangle {
 
   property real innerModulesRadius: 3
 
+  // System info properties
+  property real cpuUsage: 0.3
+  property real ramUsage: 0.6
+
   Behavior on Layout.preferredHeight {
     NumberAnimation {
       duration: 1000
@@ -26,12 +30,7 @@ Rectangle {
     }
   }
 
-  // System info properties
-  property real cpuUsage: 0.3
-  property real ramUsage: 0.6
-
   property string username: ""
-
 
   Process {
     command: ["whoami"]
@@ -77,6 +76,7 @@ Rectangle {
     }
   }
 
+
   ColumnLayout {
     id: columnLayout
     anchors.horizontalCenter: parent.horizontalCenter
@@ -86,7 +86,6 @@ Rectangle {
 
     Components.BarProfilePicture {}
     Components.BarVolumeControl {}
-    Components.Battery {}
 
     // CPU and RAM indicators
     Rectangle {
@@ -104,7 +103,7 @@ Rectangle {
         Components.RadialIndicator {
           Layout.alignment: Qt.AlignHCenter
           percent: cpuUsage
-          indicatorColor: "#78B892"
+          indicatorColor: "#DF5B61"
           backgroundColor: "#333B3F"
           size: 22
         }
@@ -113,11 +112,13 @@ Rectangle {
         Components.RadialIndicator {
           Layout.alignment: Qt.AlignHCenter
           percent: ramUsage
-          indicatorColor: "#DF5B61"
+          indicatorColor: "#78B892"
           backgroundColor: "#333B3F"
           size: 22
         }
       }
     }
+
+    Components.BarSystemTray {}
   }
 }

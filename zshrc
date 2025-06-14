@@ -220,7 +220,7 @@ BRACK_HEX="%F{#53595f}"
 USER_HEX="%F{#78B892}"
 AT_HEX="%F{#c9938a}"
 HOST_HEX="%F{#C488EC}"
-CWD_HEX="%F{#6791C9}"
+CWD_HEX="%F{#79AAEB}"
 UID_HEX="%F{#F26E74}"
 
 zstyle ':vcs_info:*' unstagedstr ' +%%'

@@ -13,7 +13,7 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  Layout.topMargin: 4
+  Layout.topMargin: 2
   width: 32
   height: 32
   radius: innerModulesRadius

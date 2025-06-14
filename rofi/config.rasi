@@ -11,10 +11,10 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
@@ -56,9 +56,10 @@ window {
     location:                    north west;
     anchor:                      north west;
     fullscreen:                  false;
-    width:                       350px;
-    x-offset:                    13px;
-    y-offset:                    6px;
+    width:                       280px;
+    height:                      440px;
+    x-offset:                    5px;
+    y-offset:                    4px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -85,7 +86,7 @@ mainbox {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     30px;
+    padding:                     4px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
@@ -96,17 +97,21 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     0px;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     0px;
     border:                      1px solid;
     border-radius:               6px;
     border-color:                @background;
     background-color:            transparent;
     text-color:                  transparent;
+    height:                      40px;
+    min-height:                  40px;
+    max-height:                  40px;
     /*children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];*/
-    background-image:            url("~/amadeus/Wallpapers/rofi-banner2.low_res.png", height);
-    orientation: vertical;
+    //background-image:            url("~/p.png", width);
+    background-image:            url("~/amadeus/Wallpapers/GMK-Pono.png", height);
+    orientation:                 vertical;
 }
 
 prompt {
@@ -118,7 +123,7 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
     expand:                      false;
-    str:                         "";
+    str:                         "";
     background-color:            inherit;
     text-color:                  inherit;
 }
@@ -163,7 +168,7 @@ listview {
     lines:                       8;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   true;
+    scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -171,7 +176,7 @@ listview {
     
     spacing:                     5px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     15px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;

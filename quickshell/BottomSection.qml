@@ -26,7 +26,6 @@ Rectangle {
 
   property string username: ""
 
-
   Process {
     command: ["whoami"]
     running: true
@@ -57,9 +56,9 @@ Rectangle {
     anchors.bottomMargin: 2
     spacing: 6
 
-    Components.BarSystemTray {}
-    Components.BarInternetStatus {}
+    // Components.BarInternetStatus {}
     Components.Player {}
+    Components.BarBatteryInternet {}
     Components.Power {}
 
 //// Time module
