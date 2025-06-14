@@ -22,7 +22,7 @@ Rectangle {
     Layout.fillHeight: true
     Layout.fillWidth: true
     spacing: 6
-    y: (bar.height - height) / 7
+    y: (bar.height - height) / 12
 
     Components.HyprlandWorkspaces {}
   }

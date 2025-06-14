@@ -3,9 +3,18 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import Quickshell.Io
 
 Scope {
   id: root
+
+  property string username: ""
+
+  Process {
+    command: ["whoami"]
+    running: true
+    stdout: SplitParser { onRead: name => username = name }
+  }
 
   readonly property PwNode sink: Pipewire.defaultAudioSink
   property bool muted: sink?.audio?.muted ?? false
@@ -166,7 +175,7 @@ Scope {
 
 					IconImage {
 						implicitSize: 20
-						source: "file:///home/toji/.config/quickshell/svg/speaker.svg"
+						source: `file:///home/${username}/.config/quickshell/svg/${muted ? 'speaker-dark' : 'speaker'}.svg`
             opacity: muted ? 0.6 : 1.0
 					}
 
@@ -179,12 +188,12 @@ Scope {
 
             Rectangle {
               radius: 2
+//              color: "#BE7E78"
 							anchors {
 								left: parent.left
 								top: parent.top
 								bottom: parent.bottom
               }
-
               gradient: Gradient {
                 orientation: Gradient.Horizontal
                 GradientStop { position: 0; color: "#6791C9" }

@@ -79,7 +79,7 @@ Rectangle {
 
   ColumnLayout {
     anchors.centerIn: parent
-    spacing: 4
+    spacing: 6
 
     // Speaker icon
     Rectangle {
@@ -90,7 +90,7 @@ Rectangle {
 
       Image {
         anchors.fill: parent
-        source: `file:///home/${username}/.config/quickshell/svg/speaker.svg`
+        source: `file:///home/${username}/.config/quickshell/svg/${muted ? 'speaker-dark' : 'speaker'}.svg`
         opacity: muted ? 0.6 : 1.0
       }
     }

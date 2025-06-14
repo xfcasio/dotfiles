@@ -72,7 +72,7 @@ Rectangle {
             width: 10
             height: 2
             radius: 1
-            color: "#A3AEB0"
+            color: batteryModule.getBatteryColor(batteryModule.batteryLevel)
           }
 
           Rectangle {
@@ -80,7 +80,7 @@ Rectangle {
             height: 24
             radius: 1
             color: "#041011"
-            border.color: "#A3AEB0"
+            border.color: batteryModule.getBatteryColor(batteryModule.batteryLevel)
             border.width: 2
 
             Rectangle {
