@@ -1,9 +1,9 @@
 <p align="center">
-    <h1 align="center"> Amadeus </h1>
+        <img src="https://readme-typing-svg.demolab.com/?font=Cartograph%20CF%20Italic&weight=700&size=56&duration=1000&pause=0&color=BE7E78&background=000A0E&center=true&vCenter=true&width=600&height=150&repeat=false&lines=Amadeus">
+    <h4 align="center"> my personal desktop made with hyprland and quickshell </h4>
 </p>
 
 <p align="center">
-    <h5 align="center"> my personal desktop made with hyprland and quickshell </h5>
     <img src="./assets/1.png" />
     <img src="./assets/2.png" />
 </p>
