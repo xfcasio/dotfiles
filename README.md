@@ -11,7 +11,7 @@
 <details>
     <summary> Older themes available in git history (click to expand) </summary>
     <p align="center">
-        <img src="./assets/banner.png" />
+        <img src="./assets/old-banner.png" />
         <img src="https://i.imgur.com/2Kj3UyG.png" />
         <img src="https://i.imgur.com/iXLEv4l.png" />
         <img src="https://i.imgur.com/Qkda2RG.png" />
