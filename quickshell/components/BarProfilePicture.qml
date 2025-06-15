@@ -13,35 +13,38 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
   Layout.alignment: Qt.AlignHCenter
-  Layout.topMargin: 2
-  width: 32
-  height: 32
+  Layout.topMargin: 4//2
+  Layout.bottomMargin: 2//2
+  width: 26//32
+  height: 26//32
   radius: innerModulesRadius
-  color: "#111A1F"
+  color: "transparent"
   clip: true
+  //color: "#111A1F"
 
-  Rectangle {
-    anchors.centerIn: parent
-    radius: 8
-    width: 26
-    height: 24
-    clip: true
-    color: "transparent"
+  Image {
+    anchors.fill: parent
+    source: `file:///home/${username}/.face.jpg`
+    fillMode: Image.PreserveAspectCrop
+    scale: 1.0
 
-    Image {
-      anchors.fill: parent
-      source: `file:///home/${username}/.face.jpg`
-      fillMode: Image.PreserveAspectCrop
-      scale: 1.2
-
-      layer.enabled: true
-      layer.effect: OpacityMask {
-        maskSource: Rectangle {
-          width: 20
-          height: 18
-          radius: 10
-        }
+    layer.enabled: true
+    layer.effect: OpacityMask {
+      maskSource: Rectangle {
+        width: 20
+        height: 18
+        radius: 8
       }
     }
   }
+
+//  Rectangle {
+//    anchors.centerIn: parent
+//    radius: 8
+//    width: 26
+//    height: 24
+//    clip: true
+//    color: "transparent"
+//
+//  }
 }
