@@ -46,26 +46,23 @@ print_events = false
 render_timer = false
 
 [font]
-#size = 8.3
-size = 8.2
+size = 8.3
 
 [font.bold]
-family = "Departure Mono"
+family = "Terminus"
 #family = "Cartograph CF"
-style = "Regular"
+style = "Bold"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "Departure Mono"
-#family = "Cartograph CF"
+family = "Terminus"
 style = "Italic"
 
 [font.normal]
-family = "Departure Mono"
-#family = "Cartograph CF"
+family = "Terminus"
 style = "Regular"
 
 [font.offset]
